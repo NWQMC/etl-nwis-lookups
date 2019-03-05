@@ -1,4 +1,4 @@
-package main.java.gov.acwi.wqp.etl.altitudeMethod;
+package main.java.gov.acwi.wqp.etl;
 
 import javax.sql.DataSource;
 
@@ -14,9 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-
-import main.java.gov.acwi.wqp.etl.GwReflist;
-import main.java.gov.acwi.wqp.etl.GwReflistRowMapper;
 
 public abstract class TransformBasicLookup {
 	

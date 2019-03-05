@@ -1,8 +1,6 @@
-package main.java.gov.acwi.wqp.etl.altitudeMethod;
+package main.java.gov.acwi.wqp.etl;
 
 import org.springframework.batch.item.ItemProcessor;
-
-import main.java.gov.acwi.wqp.etl.GwReflist;
 
 public class BasicLookupProcessor implements ItemProcessor<GwReflist, BasicLookup> {
 

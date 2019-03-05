@@ -1,4 +1,4 @@
-package main.java.gov.acwi.wqp.etl.altitudeMethod;
+package main.java.gov.acwi.wqp.etl.aquiferType;
 
 import org.springframework.batch.item.database.JdbcBatchItemWriter;
 import org.springframework.batch.item.database.JdbcCursorItemReader;
@@ -11,24 +11,24 @@ import main.java.gov.acwi.wqp.etl.GwReflist;
 import main.java.gov.acwi.wqp.etl.TransformBasicLookup;
 
 @Component
-public class TransformAltitudeMethod extends TransformBasicLookup {
+public class TransformAquiferType extends TransformBasicLookup {
 	
-	public TransformAltitudeMethod() {
-		super("saltmt", "altitude_method");
+	public TransformAquiferType() {
+		super("saqtyp", "aquifer_type");
 	}
 	
 	@Bean
-	public JdbcCursorItemReader<GwReflist> gwReflistAltitudeMethodReader() {
+	public JdbcCursorItemReader<GwReflist> gwReflistAquiferTypeReader() {
 		return gwReflistReader();
 	}
 	
 	@Bean
-	public BasicLookupProcessor altitudeMethodProcessor() {
+	public BasicLookupProcessor aquiferTypeProcessor() {
 		return basicLookupProcessor();
 	}
 	
 	@Bean
-	public JdbcBatchItemWriter<BasicLookup> altitudeMethodWriter() {
+	public JdbcBatchItemWriter<BasicLookup> aquiferTypeWriter() {
 		return basicLookupWriter();
 	}
 

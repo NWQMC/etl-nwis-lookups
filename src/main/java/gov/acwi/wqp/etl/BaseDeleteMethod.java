@@ -1,4 +1,4 @@
-package main.java.gov.acwi.wqp.etl.altitudeMethod;
+package main.java.gov.acwi.wqp.etl;
 
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.scope.context.ChunkContext;

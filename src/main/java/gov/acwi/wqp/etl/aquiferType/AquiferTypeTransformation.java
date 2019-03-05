@@ -1,4 +1,4 @@
-package main.java.gov.acwi.wqp.etl.altitudeMethod;
+package main.java.gov.acwi.wqp.etl.aquiferType;
 
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
@@ -19,51 +19,51 @@ import main.java.gov.acwi.wqp.etl.GwReflist;
 
 
 @Configuration
-public class AltitudeMethodTransformation {
+public class AquiferTypeTransformation {
 
 	@Autowired
     public StepBuilderFactory stepBuilderFactory;
     
     @Autowired
-    @Qualifier("deleteAltitudeMethod")
-    private Tasklet deleteAltitudeMethod;
+    @Qualifier("deleteAquiferType")
+    private Tasklet deleteAquiferType;
     
     
     
     @Bean 
-    public Step deleteAltitudeMethodStep() {
-    	return stepBuilderFactory.get("deleteAltitudeMethodStep")
-    			.tasklet(deleteAltitudeMethod)
+    public Step deleteAquiferTypeStep() {
+    	return stepBuilderFactory.get("deleteAquiferTypeStep")
+    			.tasklet(deleteAquiferType)
     			.build();
     }
     
     @Autowired
-    @Qualifier("gwReflistAltitudeMethodReader")
-    private JdbcCursorItemReader<GwReflist> gwReflistAltitudeMethodReader;
+    @Qualifier("gwReflistAquiferTypeReader")
+    private JdbcCursorItemReader<GwReflist> gwReflistAquiferTypeReader;
     
     @Autowired
-    @Qualifier("altitudeMethodProcessor")
-    private BasicLookupProcessor altitudeMethodProcessor;
+    @Qualifier("aquiferTypeProcessor")
+    private BasicLookupProcessor aquiferTypeProcessor;
     
     @Autowired
-    @Qualifier("altitudeMethodWriter")
-    private JdbcBatchItemWriter<BasicLookup> altitudeMethodWriter;
+    @Qualifier("aquiferTypeWriter")
+    private JdbcBatchItemWriter<BasicLookup> aquiferTypeWriter;
     
     @Bean
-    public Step transformAltitudeMethodStep() {
-    	return stepBuilderFactory.get("transformAltitudeMethodStep")
+    public Step transformAquiferTypeStep() {
+    	return stepBuilderFactory.get("transformaquiferTypeStep")
     			.<GwReflist, BasicLookup> chunk(10)
-                .reader(gwReflistAltitudeMethodReader)
-                .processor(altitudeMethodProcessor)
-                .writer(altitudeMethodWriter)
+                .reader(gwReflistAquiferTypeReader)
+                .processor(aquiferTypeProcessor)
+                .writer(aquiferTypeWriter)
                 .build();	
     }
     
     @Bean
-    public Flow altitudeMethodFlow() {
-    	return new FlowBuilder<SimpleFlow>("altitudeMethodFlow")
-    			.start(deleteAltitudeMethodStep())
-    			.next(transformAltitudeMethodStep())
+    public Flow aquiferTypeFlow() {
+    	return new FlowBuilder<SimpleFlow>("aquiferTypeFlow")
+    			.start(deleteAquiferTypeStep())
+    			.next(transformAquiferTypeStep())
     			.build();
     }
 }

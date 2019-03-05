@@ -3,7 +3,6 @@ package main.java.gov.acwi.wqp.etl;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
-import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.job.flow.Flow;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,20 +15,21 @@ public class BatchConfiguration {
 	
     @Autowired
     public JobBuilderFactory jobBuilderFactory;
-
-    @Autowired
-    public StepBuilderFactory stepBuilderFactory;
     
     @Autowired
 	@Qualifier("altitudeMethodFlow")
 	private Flow altitudeMethodFlow;
+    
+    @Autowired
+    @Qualifier("aquiferTypeFlow")
+    private Flow aquiferTypeFlow;
 
-    // tag::jobstep[]
     @Bean
     public Job importUserJob(JobCompletionNotificationListener listener) {
         return jobBuilderFactory.get("importUserJob")
             .listener(listener)
             .start(altitudeMethodFlow)
+            .next(aquiferTypeFlow)
             .build()
             .build();
     }

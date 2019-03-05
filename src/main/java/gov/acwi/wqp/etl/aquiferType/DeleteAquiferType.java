@@ -1,4 +1,4 @@
-package main.java.gov.acwi.wqp.etl.altitudeMethod;
+package main.java.gov.acwi.wqp.etl.aquiferType;
 
 import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +9,12 @@ import main.java.gov.acwi.wqp.etl.BaseDeleteMethod;
 
 @Component
 @StepScope
-public class DeleteAltitudeMethod extends BaseDeleteMethod {
+public class DeleteAquiferType extends BaseDeleteMethod {
 	
 	
 	@Autowired
-	public DeleteAltitudeMethod(JdbcTemplate jdbcTemplate) {
-		super(jdbcTemplate, "altitude_method");
+	public DeleteAquiferType(JdbcTemplate jdbcTemplate) {
+		super(jdbcTemplate, "aquifer_type");
 	}
 
 }
