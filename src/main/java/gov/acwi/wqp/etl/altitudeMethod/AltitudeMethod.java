@@ -1,4 +1,4 @@
-package main.java.gov.acwi.wqp.etl;
+package main.java.gov.acwi.wqp.etl.altitudeMethod;
 
 public class AltitudeMethod {
 	private String code;
