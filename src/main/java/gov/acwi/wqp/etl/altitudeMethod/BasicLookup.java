@@ -1,16 +1,16 @@
 package main.java.gov.acwi.wqp.etl.altitudeMethod;
 
-public class AltitudeMethod {
+public class BasicLookup {
 	private String code;
 	private String name;
 	private int sortOrder;
 	private String description;
 	private Boolean validFlag;
 	
-	public AltitudeMethod() {
+	public BasicLookup() {
 	}
 	
-	public AltitudeMethod(String code, String name, int sortOrder, String description, Boolean validFlag) {
+	public BasicLookup(String code, String name, int sortOrder, String description, Boolean validFlag) {
 		this.code = code;
 		this.name = name;
 		this.sortOrder = sortOrder;
