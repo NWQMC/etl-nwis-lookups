@@ -41,9 +41,6 @@ public abstract class TransformBasicLookup {
 	@Qualifier("natdbDataSource")
 	DataSource natdbDataSource;
 
-	@Autowired
-	public StepBuilderFactory stepBuilderFactory;
-
 	public TransformBasicLookup(String sourceTableName, String destTableName) {
 		this.sourceTableName = sourceTableName;
 		this.destTableName = destTableName;
