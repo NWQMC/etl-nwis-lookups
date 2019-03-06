@@ -17,51 +17,43 @@ import main.java.gov.acwi.wqp.etl.BasicLookup;
 import main.java.gov.acwi.wqp.etl.BasicLookupProcessor;
 import main.java.gov.acwi.wqp.etl.GwReflist;
 
-
 @Configuration
 public class AltitudeMethodTransformation {
 
 	@Autowired
-    public StepBuilderFactory stepBuilderFactory;
-    
+	public StepBuilderFactory stepBuilderFactory;
+
 	@Autowired
 	@Qualifier("deleteAltitudeMethod")
 	private Tasklet deleteAltitudeMethod;
-    
-    @Bean 
-    public Step deleteAltitudeMethodStep() {
-    	return stepBuilderFactory.get("deleteAltitudeMethodStep")
-    			.tasklet(deleteAltitudeMethod)
-    			.build();
-    }
-    
-    @Autowired
-    @Qualifier("gwReflistAltitudeMethodReader")
-    private JdbcCursorItemReader<GwReflist> gwReflistAltitudeMethodReader;
-    
-    @Autowired
-    @Qualifier("altitudeMethodProcessor")
-    private BasicLookupProcessor altitudeMethodProcessor;
-    
-    @Autowired
-    @Qualifier("altitudeMethodWriter")
-    private JdbcBatchItemWriter<BasicLookup> altitudeMethodWriter;
-    
-    @Bean
-    public Step transformAltitudeMethodStep() {
-    	return stepBuilderFactory.get("transformAltitudeMethodStep")
-    			.<GwReflist, BasicLookup> chunk(10)
-                .reader(gwReflistAltitudeMethodReader)
-                .processor(altitudeMethodProcessor)
-                .writer(altitudeMethodWriter)
-                .build();	
-    }
-    
-    @Bean
-    public Flow altitudeMethodFlow() {
-    	return new FlowBuilder<SimpleFlow>("altitudeMethodFlow")
-    			.start(deleteAltitudeMethodStep())
-    			.next(transformAltitudeMethodStep())
-    			.build();
-    }
+
+	@Bean
+	public Step deleteAltitudeMethodStep() {
+		return stepBuilderFactory.get("deleteAltitudeMethodStep").tasklet(deleteAltitudeMethod).build();
+	}
+
+	@Autowired
+	@Qualifier("gwReflistAltitudeMethodReader")
+	private JdbcCursorItemReader<GwReflist> gwReflistAltitudeMethodReader;
+
+	@Autowired
+	@Qualifier("altitudeMethodProcessor")
+	private BasicLookupProcessor altitudeMethodProcessor;
+
+	@Autowired
+	@Qualifier("altitudeMethodWriter")
+	private JdbcBatchItemWriter<BasicLookup> altitudeMethodWriter;
+
+	@Bean
+	public Step transformAltitudeMethodStep() {
+		return stepBuilderFactory.get("transformAltitudeMethodStep").<GwReflist, BasicLookup>chunk(10)
+				.reader(gwReflistAltitudeMethodReader).processor(altitudeMethodProcessor).writer(altitudeMethodWriter)
+				.build();
+	}
+
+	@Bean
+	public Flow altitudeMethodFlow() {
+		return new FlowBuilder<SimpleFlow>("altitudeMethodFlow").start(deleteAltitudeMethodStep())
+				.next(transformAltitudeMethodStep()).build();
+	}
 }
