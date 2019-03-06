@@ -5,11 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import main.java.gov.acwi.wqp.etl.BaseDeleteMethod;
+import main.java.gov.acwi.wqp.etl.BaseDeleteTable;
 
 @Component
 @StepScope
-public class DeleteAquiferType extends BaseDeleteMethod {
+public class DeleteAquiferType extends BaseDeleteTable {
 	
 	
 	@Autowired

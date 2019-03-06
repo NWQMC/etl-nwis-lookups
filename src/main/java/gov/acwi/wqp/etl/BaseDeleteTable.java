@@ -7,13 +7,13 @@ import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public abstract class BaseDeleteMethod implements Tasklet {
+public abstract class BaseDeleteTable implements Tasklet {
 
 	private final JdbcTemplate jdbcTemplate;
 	private String tableName;
 	
 	@Autowired
-	public BaseDeleteMethod(JdbcTemplate jdbcTemplate, String tableName) {
+	public BaseDeleteTable(JdbcTemplate jdbcTemplate, String tableName) {
 		this.jdbcTemplate = jdbcTemplate;
 		this.tableName = tableName;
 	}

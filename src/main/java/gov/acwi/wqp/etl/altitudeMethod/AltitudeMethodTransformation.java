@@ -24,11 +24,9 @@ public class AltitudeMethodTransformation {
 	@Autowired
     public StepBuilderFactory stepBuilderFactory;
     
-    @Autowired
-    @Qualifier("deleteAltitudeMethod")
-    private Tasklet deleteAltitudeMethod;
-    
-    
+	@Autowired
+	@Qualifier("deleteAltitudeMethod")
+	private Tasklet deleteAltitudeMethod;
     
     @Bean 
     public Step deleteAltitudeMethodStep() {
