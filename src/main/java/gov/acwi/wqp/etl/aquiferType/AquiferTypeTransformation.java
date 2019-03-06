@@ -29,7 +29,6 @@ public class AquiferTypeTransformation {
     private Tasklet deleteAquiferType;
     
     
-    
     @Bean 
     public Step deleteAquiferTypeStep() {
     	return stepBuilderFactory.get("deleteAquiferTypeStep")
