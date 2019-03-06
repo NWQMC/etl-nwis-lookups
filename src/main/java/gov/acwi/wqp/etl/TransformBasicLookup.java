@@ -2,9 +2,7 @@ package main.java.gov.acwi.wqp.etl;
 
 import javax.sql.DataSource;
 
-import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
-import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider;
 import org.springframework.batch.item.database.JdbcBatchItemWriter;
 import org.springframework.batch.item.database.JdbcCursorItemReader;
@@ -13,7 +11,6 @@ import org.springframework.batch.item.database.builder.JdbcCursorItemReaderBuild
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 
 public abstract class TransformBasicLookup {
 
@@ -54,9 +51,12 @@ public abstract class TransformBasicLookup {
 
 	@Bean
 	public JdbcCursorItemReader<GwReflist> gwReflistReader() {
-		return new JdbcCursorItemReaderBuilder<GwReflist>().dataSource(natdbDataSource).name("natdbGwReflist")
+		return new JdbcCursorItemReaderBuilder<GwReflist>()
+				.dataSource(natdbDataSource)
+				.name("natdbGwReflist")
 				.sql(new String("select * from gw_reflist where gw_ed_tbl_nm = '" + sourceTableName + "'"))
-				.rowMapper(new GwReflistRowMapper()).build();
+				.rowMapper(new GwReflistRowMapper())
+				.build();
 	}
 
 	@Bean
@@ -70,7 +70,8 @@ public abstract class TransformBasicLookup {
 				.itemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>())
 				.sql("INSERT INTO " + destTableName
 						+ " (code, name, sort_order, description, valid_flag) VALUES (:code, :name, :sortOrder, :description, :validFlag)")
-				.dataSource(wqpDataSource).build();
+				.dataSource(wqpDataSource)
+				.build();
 	}
 
 }

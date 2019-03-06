@@ -29,7 +29,9 @@ public class AltitudeMethodTransformation {
 
 	@Bean
 	public Step deleteAltitudeMethodStep() {
-		return stepBuilderFactory.get("deleteAltitudeMethodStep").tasklet(deleteAltitudeMethod).build();
+		return stepBuilderFactory.get("deleteAltitudeMethodStep")
+				.tasklet(deleteAltitudeMethod)
+				.build();
 	}
 
 	@Autowired
@@ -46,14 +48,20 @@ public class AltitudeMethodTransformation {
 
 	@Bean
 	public Step transformAltitudeMethodStep() {
-		return stepBuilderFactory.get("transformAltitudeMethodStep").<GwReflist, BasicLookup>chunk(10)
-				.reader(gwReflistAltitudeMethodReader).processor(altitudeMethodProcessor).writer(altitudeMethodWriter)
+		return stepBuilderFactory
+				.get("transformAltitudeMethodStep")
+				.<GwReflist, BasicLookup>chunk(10)
+				.reader(gwReflistAltitudeMethodReader)
+				.processor(altitudeMethodProcessor)
+				.writer(altitudeMethodWriter)
 				.build();
 	}
 
 	@Bean
 	public Flow altitudeMethodFlow() {
-		return new FlowBuilder<SimpleFlow>("altitudeMethodFlow").start(deleteAltitudeMethodStep())
-				.next(transformAltitudeMethodStep()).build();
+		return new FlowBuilder<SimpleFlow>("altitudeMethodFlow")
+				.start(deleteAltitudeMethodStep())
+				.next(transformAltitudeMethodStep())
+				.build();
 	}
 }
