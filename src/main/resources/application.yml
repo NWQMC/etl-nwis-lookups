@@ -1,19 +1,15 @@
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: postgres
   batch:
     initialize-schema: always
     
 app:
   datasource:
     wqp:
-      url: jdbc:postgresql://localhost:5434/nwis_ws_star_db
-      username: nwis_ws_star
-      password: nwis_ws_star_owner_password
+      url: NWIS_WS_STAR_URL
+      username: NWIS_WS_STAR_USERNAME
+      password: NWIS_WS_STAR_PASSWORD
       
     natdb:
-      url: jdbc:oracle:thin:@//nwisraqa.c8adwxz9sely.us-west-2.rds.amazonaws.com:1521/NWISRAQA
-      username: natdb
-      password: 'D*P(*#HDPUh9c7'
+      url: NATDB_URL
+      username: NATDB_USERNAME
+      password: NATDB_PASSWORD
