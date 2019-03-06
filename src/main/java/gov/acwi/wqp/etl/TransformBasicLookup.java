@@ -2,7 +2,6 @@ package main.java.gov.acwi.wqp.etl;
 
 import javax.sql.DataSource;
 
-import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider;
 import org.springframework.batch.item.database.JdbcBatchItemWriter;
 import org.springframework.batch.item.database.JdbcCursorItemReader;

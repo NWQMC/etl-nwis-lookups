@@ -31,6 +31,10 @@ public class BatchConfiguration {
     @Autowired
     @Qualifier("bodyPartFlow")
     private Flow bodyPartFlow;
+    
+    @Autowired
+    @Qualifier("citMethFlow")
+    private Flow citMethFlow;
 
     @Bean
     public Job importUserJob(JobCompletionNotificationListener listener) {
@@ -40,6 +44,7 @@ public class BatchConfiguration {
             .next(aquiferTypeFlow)
             .next(aqfrFlow)
             .next(bodyPartFlow)
+            .next(citMethFlow)
             .build()
             .build();
     }
