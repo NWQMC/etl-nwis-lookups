@@ -1,4 +1,4 @@
-package main.java.gov.acwi.wqp.etl.aqfr;
+package main.java.gov.acwi.wqp.etl.bodyPart;
 
 import javax.sql.DataSource;
 
@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TransformAqfr {
+public class TransformBodyPart {
 	
 	@Autowired
 	@Qualifier("wqpDataSource")
@@ -27,30 +27,29 @@ public class TransformAqfr {
 	@Autowired
 	public StepBuilderFactory stepBuilderFactory;
 	
-	public TransformAqfr() {
+	public TransformBodyPart() {
 	}
 	
 	@Bean
-	public JdbcCursorItemReader<Aqfr> aqfrReader() {
-		return new JdbcCursorItemReaderBuilder<Aqfr>()
+	public JdbcCursorItemReader<BodyPart> bodyPartReader() {
+		return new JdbcCursorItemReaderBuilder<BodyPart>()
 				.dataSource(natdbDataSource)
-				.name("natdbAqfr")
-				.sql(new String("select aqfr_state.country_cd, aqfr_state.state_cd, aqfr.aqfr_cd, aqfr.aqfr_nm, aqfr.aqfr_dt aqfr_md from aqfr join aqfr_state on aqfr.aqfr_cd = aqfr_state.aqfr_cd"))
-				.rowMapper(new AqfrRowMapper())
+				.name("natdbBodyPart")
+				.sql(new String("select body_part_id, body_part_nm from body_part"))
+				.rowMapper(new BodyPartRowManager())
 				.build();
 	}
 
 	@Bean
-	public AqfrProcessor aqfrProcessor() {
-		return new AqfrProcessor();
+	public BodyPartProcessor bodyPartProcessor() {
+		return new BodyPartProcessor();
 	}
 
 	@Bean
-	public JdbcBatchItemWriter<Aqfr> aqfrWriter() {
-		return new JdbcBatchItemWriterBuilder<Aqfr>()
+	public JdbcBatchItemWriter<BodyPart> bodyPartWriter() {
+		return new JdbcBatchItemWriterBuilder<BodyPart>()
 				.itemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>())
-				.sql("INSERT INTO aqfr" + 
-						" (country_cd, state_cd, aqfr_cd, aqfr_nm, aqfr_md) VALUES (:countryCd, :stateCd, :aqfrCd, :aqfrNm, :aqfrMd)")
+				.sql("INSERT INTO body_part (body_part_id, body_part_nm) VALUES (:bodyPartId, :bodyPartNm)")
 				.dataSource(wqpDataSource)
 				.build();
 	}

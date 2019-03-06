@@ -27,6 +27,10 @@ public class BatchConfiguration {
     @Autowired
     @Qualifier("aqfrFlow")
     private Flow aqfrFlow;
+    
+    @Autowired
+    @Qualifier("bodyPartFlow")
+    private Flow bodyPartFlow;
 
     @Bean
     public Job importUserJob(JobCompletionNotificationListener listener) {
@@ -35,6 +39,7 @@ public class BatchConfiguration {
             .start(altitudeMethodFlow)
             .next(aquiferTypeFlow)
             .next(aqfrFlow)
+            .next(bodyPartFlow)
             .build()
             .build();
     }
