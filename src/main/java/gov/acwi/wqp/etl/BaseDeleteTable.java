@@ -20,7 +20,7 @@ public abstract class BaseDeleteTable implements Tasklet {
 
 	@Override
 	public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
-		String sql = new String("delete from " + tableName);
+		String sql = new String("truncate table " + tableName);
 		jdbcTemplate.execute(sql);
 		
 		return RepeatStatus.FINISHED;

@@ -2,16 +2,9 @@ package gov.acwi.wqp.etl.citMeth;
 
 import org.springframework.batch.item.ItemProcessor;
 
-public class CitMethProcessor implements ItemProcessor<CitMeth, CitMeth> {
+import gov.acwi.wqp.etl.BaseProcessor;
 
-	final static String TRIM = "^\\s]*|\\s]*$";
-	
-	private String trimString(String value) {
-		if (null != value) {
-			return value.replaceAll(TRIM,  "");
-		} 
-		return value;
-	}
+public class CitMethProcessor extends BaseProcessor implements ItemProcessor<CitMeth, CitMeth> {
 
 	@Override
 	public CitMeth process(CitMeth source) throws Exception {
