@@ -4,8 +4,6 @@ import org.springframework.batch.item.ItemProcessor;
 
 public class BasicLookupProcessor extends BaseProcessor implements ItemProcessor<GwReflist, BasicLookup> {
 	
-	final static String TRIM = "^\\s]*|\\s]*$";
-
 	@Override
 	public BasicLookup process(GwReflist gwReflist) throws Exception {
 		final String code = trimString(gwReflist.getGwRefCd());

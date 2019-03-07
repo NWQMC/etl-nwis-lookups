@@ -6,8 +6,6 @@ import gov.acwi.wqp.etl.BaseProcessor;
 
 public class AqfrProcessor extends BaseProcessor implements ItemProcessor<Aqfr, Aqfr> {
 
-	final static String TRIM = "^\\s]*|\\s]*$";
-
 	@Override
 	public Aqfr process(Aqfr source) throws Exception {
 		final String countryCd = trimString(source.getCountryCd());
