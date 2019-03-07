@@ -1,123 +1,123 @@
 package gov.acwi.wqp.etl.county;
 
 public class County {
-	private String country_cd;
-	private String state_cd;
-	private String county_cd;
-	private String county_nm;
-	private String county_max_lat_va;
-	private String county_min_lat_va;
-	private String county_max_long_va;
-	private String county_min_long_va;
-	private String county_max_alt_va_;
-	private String county_min_alt_va;
-	private String county_md;
+	private String countryCd;
+	private String stateCd;
+	private String countyCd;
+	private String countyNm;
+	private String countyMaxLatVa;
+	private String countyMinLatVa;
+	private String countyMaxLongVa;
+	private String countyMinLongVa;
+	private String countyMaxAltVa;
+	private String countyMinAltVa;
+	private String countyMd;
 	
 	public County() {
 	}
 
-	public County(String country_cd, String state_cd, String county_cd, String county_nm, String county_max_lat_va,
-			String county_min_lat_va, String county_max_long_va, String county_min_long_va, String county_max_alt_va_,
-			String county_min_alt_va, String county_md) {
+	public County(String countryCd, String stateCd, String countyCd, String countyNm, String countyMaxLatVa,
+			String countyMinLatVa, String countyMaxLongVa, String countyMinLongVa, String countyMaxAltVa,
+			String countyMinAltVa, String countyMd) {
 		super();
-		this.country_cd = country_cd;
-		this.state_cd = state_cd;
-		this.county_cd = county_cd;
-		this.county_nm = county_nm;
-		this.county_max_lat_va = county_max_lat_va;
-		this.county_min_lat_va = county_min_lat_va;
-		this.county_max_long_va = county_max_long_va;
-		this.county_min_long_va = county_min_long_va;
-		this.county_max_alt_va_ = county_max_alt_va_;
-		this.county_min_alt_va = county_min_alt_va;
-		this.county_md = county_md;
+		this.countryCd = countryCd;
+		this.stateCd = stateCd;
+		this.countyCd = countyCd;
+		this.countyNm = countyNm;
+		this.countyMaxLatVa = countyMaxLatVa;
+		this.countyMinLatVa = countyMinLatVa;
+		this.countyMaxLongVa = countyMaxLongVa;
+		this.countyMinLongVa = countyMinLongVa;
+		this.countyMaxAltVa = countyMaxAltVa;
+		this.countyMinAltVa = countyMinAltVa;
+		this.countyMd = countyMd;
 	}
 
-	public String getCountry_cd() {
-		return country_cd;
+	public String getCountryCd() {
+		return countryCd;
 	}
 
-	public void setCountry_cd(String country_cd) {
-		this.country_cd = country_cd;
+	public void setCountryCd(String countryCd) {
+		this.countryCd = countryCd;
 	}
 
-	public String getState_cd() {
-		return state_cd;
+	public String getStateCd() {
+		return stateCd;
 	}
 
-	public void setState_cd(String state_cd) {
-		this.state_cd = state_cd;
+	public void setStateCd(String stateCd) {
+		this.stateCd = stateCd;
 	}
 
-	public String getCounty_cd() {
-		return county_cd;
+	public String getCountyCd() {
+		return countyCd;
 	}
 
-	public void setCounty_cd(String county_cd) {
-		this.county_cd = county_cd;
+	public void setCountyCd(String countyCd) {
+		this.countyCd = countyCd;
 	}
 
-	public String getCounty_nm() {
-		return county_nm;
+	public String getCountyNm() {
+		return countyNm;
 	}
 
-	public void setCounty_nm(String county_nm) {
-		this.county_nm = county_nm;
+	public void setCountyNm(String countyNm) {
+		this.countyNm = countyNm;
 	}
 
-	public String getCounty_max_lat_va() {
-		return county_max_lat_va;
+	public String getCountyMaxLatVa() {
+		return countyMaxLatVa;
 	}
 
-	public void setCounty_max_lat_va(String county_max_lat_va) {
-		this.county_max_lat_va = county_max_lat_va;
+	public void setCountyMaxLatVa(String countyMaxLatVa) {
+		this.countyMaxLatVa = countyMaxLatVa;
 	}
 
-	public String getCounty_min_lat_va() {
-		return county_min_lat_va;
+	public String getCountyMinLatVa() {
+		return countyMinLatVa;
 	}
 
-	public void setCounty_min_lat_va(String county_min_lat_va) {
-		this.county_min_lat_va = county_min_lat_va;
+	public void setCountyMinLatVa(String countyMinLatVa) {
+		this.countyMinLatVa = countyMinLatVa;
 	}
 
-	public String getCounty_max_long_va() {
-		return county_max_long_va;
+	public String getCountyMaxLongVa() {
+		return countyMaxLongVa;
 	}
 
-	public void setCounty_max_long_va(String county_max_long_va) {
-		this.county_max_long_va = county_max_long_va;
+	public void setCountyMaxLongVa(String countyMaxLongVa) {
+		this.countyMaxLongVa = countyMaxLongVa;
 	}
 
-	public String getCounty_min_long_va() {
-		return county_min_long_va;
+	public String getCountyMinLongVa() {
+		return countyMinLongVa;
 	}
 
-	public void setCounty_min_long_va(String county_min_long_va) {
-		this.county_min_long_va = county_min_long_va;
+	public void setCountyMinLongVa(String countyMinLongVa) {
+		this.countyMinLongVa = countyMinLongVa;
 	}
 
-	public String getCounty_max_alt_va_() {
-		return county_max_alt_va_;
+	public String getCountyMaxAltVa() {
+		return countyMaxAltVa;
 	}
 
-	public void setCounty_max_alt_va_(String county_max_alt_va_) {
-		this.county_max_alt_va_ = county_max_alt_va_;
+	public void setCountyMaxAltVa(String countyMaxAltVa) {
+		this.countyMaxAltVa = countyMaxAltVa;
 	}
 
-	public String getCounty_min_alt_va() {
-		return county_min_alt_va;
+	public String getCountyMinAltVa() {
+		return countyMinAltVa;
 	}
 
-	public void setCounty_min_alt_va(String county_min_alt_va) {
-		this.county_min_alt_va = county_min_alt_va;
+	public void setCountyMinAltVa(String countyMinAltVa) {
+		this.countyMinAltVa = countyMinAltVa;
 	}
 
-	public String getCounty_md() {
-		return county_md;
+	public String getCountyMd() {
+		return countyMd;
 	}
 
-	public void setCounty_md(String county_md) {
-		this.county_md = county_md;
+	public void setCountyMd(String countyMd) {
+		this.countyMd = countyMd;
 	}
 }

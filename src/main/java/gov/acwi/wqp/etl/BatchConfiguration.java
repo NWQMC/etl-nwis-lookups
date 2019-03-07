@@ -39,16 +39,22 @@ public class BatchConfiguration {
 	@Autowired
 	@Qualifier("countryFlow")
 	private Flow countryFlow;
+	
+	@Autowired
+	@Qualifier("countyFlow")
+	private Flow countyFlow;
 
 	@Bean
 	public Job importUserJob(JobCompletionNotificationListener listener) {
 		return jobBuilderFactory.get("importUserJob")
 				.listener(listener)
 				.start(altitudeMethodFlow)
-				.next(aquiferTypeFlow)
-				.next(aqfrFlow).next(bodyPartFlow)
-				.next(citMethFlow)
-				.next(countryFlow)
+	//			.next(aquiferTypeFlow)
+//				.next(aqfrFlow)
+//				.next(bodyPartFlow)
+//				.next(citMethFlow)
+//				.next(countryFlow)
+				.next(countyFlow)
 				.build()
 				.build();
 	}
