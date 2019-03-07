@@ -1,4 +1,4 @@
-package main.java.gov.acwi.wqp.etl.aqfr;
+package gov.acwi.wqp.etl.aqfr;
 
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;

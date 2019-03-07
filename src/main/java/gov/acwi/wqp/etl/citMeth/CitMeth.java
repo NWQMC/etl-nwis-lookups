@@ -1,4 +1,4 @@
-package main.java.gov.acwi.wqp.etl.citMeth;
+package gov.acwi.wqp.etl.citMeth;
 
 import java.util.Date;
 

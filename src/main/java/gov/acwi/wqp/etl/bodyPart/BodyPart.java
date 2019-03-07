@@ -1,4 +1,4 @@
-package main.java.gov.acwi.wqp.etl.bodyPart;
+package gov.acwi.wqp.etl.bodyPart;
 
 public class BodyPart {
 

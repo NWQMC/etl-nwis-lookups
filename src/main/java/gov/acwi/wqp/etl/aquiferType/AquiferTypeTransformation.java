@@ -1,4 +1,4 @@
-package main.java.gov.acwi.wqp.etl.aquiferType;
+package gov.acwi.wqp.etl.aquiferType;
 
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
@@ -13,9 +13,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import main.java.gov.acwi.wqp.etl.BasicLookup;
-import main.java.gov.acwi.wqp.etl.BasicLookupProcessor;
-import main.java.gov.acwi.wqp.etl.GwReflist;
+import gov.acwi.wqp.etl.BasicLookup;
+import gov.acwi.wqp.etl.BasicLookupProcessor;
+import gov.acwi.wqp.etl.GwReflist;
 
 @Configuration
 public class AquiferTypeTransformation {

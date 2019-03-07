@@ -1,4 +1,4 @@
-package main.java.gov.acwi.wqp.etl.bodyPart;
+package gov.acwi.wqp.etl.bodyPart;
 
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;

@@ -1,4 +1,4 @@
-package main.java.gov.acwi.wqp.etl;
+package gov.acwi.wqp.etl;
 
 public class BasicLookup {
 	private String code;

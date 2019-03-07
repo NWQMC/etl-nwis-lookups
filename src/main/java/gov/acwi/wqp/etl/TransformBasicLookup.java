@@ -1,4 +1,4 @@
-package main.java.gov.acwi.wqp.etl;
+package gov.acwi.wqp.etl;
 
 import javax.sql.DataSource;
 

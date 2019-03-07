@@ -1,4 +1,4 @@
-package main.java.gov.acwi.wqp.etl;
+package gov.acwi.wqp.etl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

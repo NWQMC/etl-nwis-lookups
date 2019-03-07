@@ -1,4 +1,4 @@
-package main.java.gov.acwi.wqp.etl.bodyPart;
+package gov.acwi.wqp.etl.bodyPart;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

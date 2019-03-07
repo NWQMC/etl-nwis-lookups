@@ -1,4 +1,4 @@
-package main.java.gov.acwi.wqp.etl;
+package gov.acwi.wqp.etl;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
