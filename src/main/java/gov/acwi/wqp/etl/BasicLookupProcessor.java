@@ -9,7 +9,7 @@ public class BasicLookupProcessor extends BaseProcessor implements ItemProcessor
 		final String code = trimString(gwReflist.getGwRefCd());
 		final String name = trimString(gwReflist.getGwRefNm());
 		final String description = trimString(gwReflist.getGwRefDs());
-		final Boolean validFlag = gwReflist.getGwValidFg() == 'Y';
+		final boolean validFlag = gwReflist.getGwValidFg() == 'Y';
 		
 		return new BasicLookup(code, name, gwReflist.getGwSortNu(), description, validFlag);
 	}

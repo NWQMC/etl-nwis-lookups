@@ -47,6 +47,10 @@ public class BatchConfiguration {
 	@Autowired
 	@Qualifier("fxdFlow")
 	private Flow fxdFlow;
+	
+	@Autowired
+	@Qualifier("hydCondCdFlow")
+	private Flow hydCondCdFlow;
 
 	@Bean
 	public Job importUserJob(JobCompletionNotificationListener listener) {
@@ -59,7 +63,8 @@ public class BatchConfiguration {
 //				.next(citMethFlow)
 //				.next(countryFlow)
 //				.next(countyFlow)
-				.next(fxdFlow)
+//				.next(fxdFlow)
+				.next(hydCondCdFlow)
 				.build()
 				.build();
 	}

@@ -5,12 +5,12 @@ public class BasicLookup {
 	private String name;
 	private int sortOrder;
 	private String description;
-	private Boolean validFlag;
+	private boolean validFlag;
 	
 	public BasicLookup() {
 	}
 	
-	public BasicLookup(String code, String name, int sortOrder, String description, Boolean validFlag) {
+	public BasicLookup(String code, String name, int sortOrder, String description, boolean validFlag) {
 		this.code = code;
 		this.name = name;
 		this.sortOrder = sortOrder;
@@ -43,7 +43,7 @@ public class BasicLookup {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Boolean getValidFlag() {
+	public boolean isValidFlag() {
 		return validFlag;
 	}
 	public void setValidFlag(Boolean validFlag) {
