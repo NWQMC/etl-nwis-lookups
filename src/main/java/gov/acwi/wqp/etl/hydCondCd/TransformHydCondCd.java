@@ -35,7 +35,7 @@ public class TransformHydCondCd {
 		return new JdbcCursorItemReaderBuilder<HydCondCd>()
 				.dataSource(natdbDataSource)
 				.name("natdbHydCondCd")
-				.sql(new String("select hyd_cond_cd, hyd_cond_srt_nu, hyd_cond_vld_fg, hyd_cond_nm, hyd_cond_ds from hyd_cond_cd"))
+				.sql("select hyd_cond_cd, hyd_cond_srt_nu, hyd_cond_vld_fg, hyd_cond_nm, hyd_cond_ds from hyd_cond_cd")
 				.rowMapper(new HydCondCdRowMapper())
 				.build();
 	}

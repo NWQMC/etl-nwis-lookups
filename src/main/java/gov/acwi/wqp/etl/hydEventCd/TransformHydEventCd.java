@@ -35,7 +35,7 @@ public class TransformHydEventCd {
 		return new JdbcCursorItemReaderBuilder<HydEventCd>()
 				.dataSource(natdbDataSource)
 				.name("natdbHydEventCd")
-				.sql(new String("select hyd_event_cd, hyd_event_srt_nu, hyd_event_vld_fg, hyd_event_nm, hyd_event_ds from hyd_event_cd"))
+				.sql("select hyd_event_cd, hyd_event_srt_nu, hyd_event_vld_fg, hyd_event_nm, hyd_event_ds from hyd_event_cd")
 				.rowMapper(new HydEventCdRowMapper())
 				.build();
 	}

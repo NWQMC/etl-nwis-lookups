@@ -35,7 +35,7 @@ public class TransformCitMeth {
 		return new JdbcCursorItemReaderBuilder<CitMeth>()
 				.dataSource(natdbDataSource)
 				.name("natdbcitMeth")
-				.sql(new String("select cit_meth_id, meth_cd, cit_nm, cit_meth_no, meth_src_cd, cit_meth_init_nm, cit_meth_init_dt, cit_meth_rev_nm, cit_meth_rev_dt from cit_meth"))
+				.sql("select cit_meth_id, meth_cd, cit_nm, cit_meth_no, meth_src_cd, cit_meth_init_nm, cit_meth_init_dt, cit_meth_rev_nm, cit_meth_rev_dt from cit_meth")
 				.rowMapper(new CitMethRowMapper())
 				.build();
 	}

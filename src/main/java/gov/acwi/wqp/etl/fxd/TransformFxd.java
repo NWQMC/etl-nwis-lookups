@@ -35,7 +35,7 @@ public class TransformFxd {
 		return new JdbcCursorItemReaderBuilder<Fxd>()
 				.dataSource(natdbDataSource)
 				.name("natdbFxd")
-				.sql(new String("select parm_cd, fxd_va, fxd_nm, fxd_tx, fxd_init_dt, fxd_init_nm, fxd_rev_dt, fxd_rev_nm from fxd"))
+				.sql("select parm_cd, fxd_va, fxd_nm, fxd_tx, fxd_init_dt, fxd_init_nm, fxd_rev_dt, fxd_rev_nm from fxd")
 				.rowMapper(new FxdRowMapper())
 				.build();
 	}

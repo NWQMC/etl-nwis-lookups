@@ -39,7 +39,7 @@ public class TransformCountry {
 		return new JdbcCursorItemReaderBuilder<Country>()
 				.dataSource(natdbDataSource)
 				.name("natdbAqfr")
-				.sql(new String("select country_cd, country_nm from country where regexp_replace(country_cd, '(^[[:space:]]*|[[:space:]]*$)') != 'CN'"))
+				.sql("select country_cd, country_nm from country where regexp_replace(country_cd, '(^[[:space:]]*|[[:space:]]*$)') != 'CN'")
 				.rowMapper(new CountryRowMapper())
 				.build();
 	}

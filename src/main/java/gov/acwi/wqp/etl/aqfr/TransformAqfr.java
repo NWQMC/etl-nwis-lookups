@@ -35,7 +35,7 @@ public class TransformAqfr {
 		return new JdbcCursorItemReaderBuilder<Aqfr>()
 				.dataSource(natdbDataSource)
 				.name("natdbAqfr")
-				.sql(new String("select aqfr_state.country_cd, aqfr_state.state_cd, aqfr.aqfr_cd, aqfr.aqfr_nm, aqfr.aqfr_dt aqfr_md from aqfr join aqfr_state on aqfr.aqfr_cd = aqfr_state.aqfr_cd"))
+				.sql("select aqfr_state.country_cd, aqfr_state.state_cd, aqfr.aqfr_cd, aqfr.aqfr_nm, aqfr.aqfr_dt aqfr_md from aqfr join aqfr_state on aqfr.aqfr_cd = aqfr_state.aqfr_cd")
 				.rowMapper(new AqfrRowMapper())
 				.build();
 	}

@@ -50,7 +50,7 @@ public abstract class TransformBasicLookup {
 		return new JdbcCursorItemReaderBuilder<GwReflist>()
 				.dataSource(natdbDataSource)
 				.name("natdbGwReflist")
-				.sql(new String("select * from gw_reflist where gw_ed_tbl_nm = '" + sourceTableName + "'"))
+				.sql("select * from gw_reflist where gw_ed_tbl_nm = '" + sourceTableName + "'")
 				.rowMapper(new GwReflistRowMapper())
 				.build();
 	}

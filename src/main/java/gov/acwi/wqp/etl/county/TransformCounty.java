@@ -35,7 +35,7 @@ public class TransformCounty {
 		return new JdbcCursorItemReaderBuilder<County>()
 				.dataSource(natdbDataSource)
 				.name("natdbCounty")
-				.sql(new String("select country_cd, state_cd, county_cd, county_nm, county_max_lat_va, county_min_lat_va, county_max_long_va, county_min_long_va, county_max_alt_va, county_min_alt_va, county_md from county"))
+				.sql("select country_cd, state_cd, county_cd, county_nm, county_max_lat_va, county_min_lat_va, county_max_long_va, county_min_long_va, county_max_alt_va, county_min_alt_va, county_md from county")
 				.rowMapper(new CountyRowMapper())
 				.build();
 	}

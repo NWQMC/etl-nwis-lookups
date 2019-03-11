@@ -35,7 +35,7 @@ public class TransformBodyPart {
 		return new JdbcCursorItemReaderBuilder<BodyPart>()
 				.dataSource(natdbDataSource)
 				.name("natdbBodyPart")
-				.sql(new String("select body_part_id, body_part_nm from body_part"))
+				.sql("select body_part_id, body_part_nm from body_part")
 				.rowMapper(new BodyPartRowManager())
 				.build();
 	}
