@@ -71,6 +71,10 @@ public class BatchConfiguration {
 	@Autowired
 	@Qualifier("methWithCitFlow")
 	private Flow methWithCitFlow;
+	
+	@Autowired
+	@Qualifier("natAqfrFlow")
+	private Flow natAqfrFlow;
 
 	@Bean
 	public Job importUserJob(JobCompletionNotificationListener listener) {
@@ -90,6 +94,7 @@ public class BatchConfiguration {
 				.next(latLongMethodFlow)
 				.next(methFlow)
 				.next(methWithCitFlow)
+				.next(natAqfrFlow)
 				.build()
 				.build();
 	}
