@@ -67,6 +67,10 @@ public class BatchConfiguration {
 	@Autowired
 	@Qualifier("methFlow")
 	private Flow methFlow;
+	
+	@Autowired
+	@Qualifier("methWithCitFlow")
+	private Flow methWithCitFlow;
 
 	@Bean
 	public Job importUserJob(JobCompletionNotificationListener listener) {
@@ -84,7 +88,8 @@ public class BatchConfiguration {
 //				.next(hydEventCdFlow)
 //				.next(latLongDatumFlow)
 //				.next(latLongMethodFlow)
-				.next(methFlow)
+//				.next(methFlow)
+				.next(methWithCitFlow)
 				.build()
 				.build();
 	}
