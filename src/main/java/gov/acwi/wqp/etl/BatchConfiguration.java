@@ -83,28 +83,33 @@ public class BatchConfiguration {
 	@Autowired
 	@Qualifier("parmAliasFlow")
 	private Flow parmAliasFlow;
+	
+	@Autowired
+	@Qualifier("parmFlow")
+	private Flow parmFlow;
 
 	@Bean
 	public Job importUserJob(JobCompletionNotificationListener listener) {
 		return jobBuilderFactory.get("importUserJob")
 				.listener(listener)
 				.start(altitudeMethodFlow)
-				.next(aquiferTypeFlow)
-				.next(aqfrFlow)
-				.next(bodyPartFlow)
-				.next(citMethFlow)
-				.next(countryFlow)
-				.next(countyFlow)
-				.next(fxdFlow)
-				.next(hydCondCdFlow)
-				.next(hydEventCdFlow)
-				.next(latLongDatumFlow)
-				.next(latLongMethodFlow)
-				.next(methFlow)
-				.next(methWithCitFlow)
-				.next(natAqfrFlow)
+//				.next(aquiferTypeFlow)
+//				.next(aqfrFlow)
+//				.next(bodyPartFlow)
+//				.next(citMethFlow)
+//				.next(countryFlow)
+//				.next(countyFlow)
+//				.next(fxdFlow)
+//				.next(hydCondCdFlow)
+//				.next(hydEventCdFlow)
+//				.next(latLongDatumFlow)
+//				.next(latLongMethodFlow)
+//				.next(methFlow)
+//				.next(methWithCitFlow)
+//				.next(natAqfrFlow)
 				.next(parmMethFlow)
-				.next(parmAliasFlow)
+//				.next(parmAliasFlow)
+				.next(parmFlow)
 				.build()
 				.build();
 	}
