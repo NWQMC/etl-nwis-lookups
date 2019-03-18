@@ -6,12 +6,15 @@ import org.springframework.batch.core.job.builder.FlowBuilder;
 import org.springframework.batch.core.job.flow.Flow;
 import org.springframework.batch.core.job.flow.support.SimpleFlow;
 import org.springframework.batch.core.step.tasklet.Tasklet;
+import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.database.JdbcBatchItemWriter;
 import org.springframework.batch.item.database.JdbcCursorItemReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import gov.acwi.wqp.etl.parmMeth.ParmMeth;
 
 @Configuration
 public class ParmTransformation {
@@ -42,6 +45,18 @@ public class ParmTransformation {
 	@Qualifier("parmWriter")
 	private JdbcBatchItemWriter<Parm> parmWriter;
 	
+	@Autowired
+	@Qualifier("addMultiplierColumn")
+	private Tasklet addMultiplierColumn;
+	
+	@Bean 
+	public Step addMultiplierColumnStep() {
+		return stepBuilderFactory.get("addMultiplierColumnStep")
+				.tasklet(addMultiplierColumn)
+				.build();
+	}
+	
+	
 	@Bean
 	public Step transformParmStep() {
 		return stepBuilderFactory
@@ -58,6 +73,7 @@ public class ParmTransformation {
 		return new FlowBuilder<SimpleFlow>("parmFlow")
 				.start(deleteParmStep())
 				.next(transformParmStep())
+				.next(addMultiplierColumnStep())
 				.build();
 	}
 
