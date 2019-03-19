@@ -99,6 +99,10 @@ public class BatchConfiguration {
 	@Autowired
 	@Qualifier("stateFlow")
 	private Flow stateFlow;
+	
+	@Autowired
+	@Qualifier("tuFlow")
+	private Flow tuFlow;
 
 	@Bean
 	public Job importUserJob(JobCompletionNotificationListener listener) {
@@ -126,6 +130,7 @@ public class BatchConfiguration {
 //				.next(protoOrgFlow)
 //				.next(siteTpFlow)
 				.next(stateFlow)
+				.next(tuFlow)
 				.build()
 				.build();
 	}
