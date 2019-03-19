@@ -103,6 +103,10 @@ public class BatchConfiguration {
 	@Autowired
 	@Qualifier("tuFlow")
 	private Flow tuFlow;
+	
+	@Autowired
+	@Qualifier("valQualCdFlow")
+	private Flow valQualCdFlow;
 
 	@Bean
 	public Job importUserJob(JobCompletionNotificationListener listener) {
@@ -131,6 +135,7 @@ public class BatchConfiguration {
 //				.next(siteTpFlow)
 				.next(stateFlow)
 				.next(tuFlow)
+				.next(valQualCdFlow)
 				.build()
 				.build();
 	}
