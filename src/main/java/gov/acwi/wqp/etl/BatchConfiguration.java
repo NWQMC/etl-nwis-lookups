@@ -95,6 +95,10 @@ public class BatchConfiguration {
 	@Autowired
 	@Qualifier("siteTpFlow")
 	private Flow siteTpFlow;
+	
+	@Autowired
+	@Qualifier("stateFlow")
+	private Flow stateFlow;
 
 	@Bean
 	public Job importUserJob(JobCompletionNotificationListener listener) {
@@ -120,7 +124,8 @@ public class BatchConfiguration {
 				// parmMethFlow has to occur before parmFlow
 //				.next(parmFlow)
 //				.next(protoOrgFlow)
-				.next(siteTpFlow)
+//				.next(siteTpFlow)
+				.next(stateFlow)
 				.build()
 				.build();
 	}
