@@ -49,7 +49,7 @@ public class LatLongMethodTransformation {
 	@Bean
 	public Step transformLatLongMethodStep() {
 		return stepBuilderFactory
-				.get("transformLatLongDatumStep")
+				.get("transformLatLongMethodStep")
 				.<GwReflist, BasicLookup>chunk(10)
 				.reader(gwReflistLatLongMethodReader)
 				.processor(latLongMethodProcessor)

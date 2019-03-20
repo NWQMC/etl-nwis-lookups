@@ -43,9 +43,7 @@ public class TaskMethWithCitMeth implements Tasklet {
 		JdbcTemplate wqpJdbcTemplate = new JdbcTemplate(wqpDataSource);
 		
 		List <MethWithCit> rows = natdbJdbcTemplate.query(sql, new MethWithCitRowManager());
-		
-		log.info("Selected row count: " + rows.size());
-		
+				
 		wqpJdbcTemplate.batchUpdate("INSERT INTO meth_with_cit (meth_cd, meth_nm, cit_nm) VALUES (?, ?, ?)",
 				new BatchPreparedStatementSetter() {
 					public void setValues(PreparedStatement ps, int i) throws SQLException {
