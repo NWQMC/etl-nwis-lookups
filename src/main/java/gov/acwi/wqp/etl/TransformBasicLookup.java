@@ -1,5 +1,8 @@
 package gov.acwi.wqp.etl;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 import javax.sql.DataSource;
 
 import org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider;
@@ -10,6 +13,7 @@ import org.springframework.batch.item.database.builder.JdbcCursorItemReaderBuild
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 
 public abstract class TransformBasicLookup {
 
@@ -44,13 +48,19 @@ public abstract class TransformBasicLookup {
 		this.sourceTableName = sourceTableName;
 		this.destTableName = destTableName;
 	}
+	
 
 	@Bean
 	public JdbcCursorItemReader<GwReflist> gwReflistReader() {
 		return new JdbcCursorItemReaderBuilder<GwReflist>()
 				.dataSource(natdbDataSource)
 				.name("natdbGwReflist")
-				.sql("select * from gw_reflist where gw_ed_tbl_nm = '" + sourceTableName + "'")
+				.preparedStatementSetter(new PreparedStatementSetter() {
+					 public void setValues(PreparedStatement preparedStatement) throws SQLException {
+					      preparedStatement.setString(1, sourceTableName);
+					   }
+				})
+				.sql("select * from gw_reflist where gw_ed_tbl_nm = ?")
 				.rowMapper(new GwReflistRowMapper())
 				.build();
 	}
