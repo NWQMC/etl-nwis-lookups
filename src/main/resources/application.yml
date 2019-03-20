@@ -1,6 +1,8 @@
 spring:
   batch:
     initialize-schema: always
+    job:
+      enabled: false
     
 app:
   datasource:
@@ -10,6 +12,6 @@ app:
       password: ${NWIS_WS_STAR_PASSWORD}
       
     natdb:
-      url: jdcb:oracle:thin:@//${NATDB_HOST}:${NATDB_PORT}/${NATDB_NWISRA_DB}
+      url: jdbc:oracle:thin:@//${NATDB_HOST}:${NATDB_PORT}/${NATDB_NWISRA_DB}
       username: ${NATDB_USERNAME}
       password: ${NATDB_PASSWORD}

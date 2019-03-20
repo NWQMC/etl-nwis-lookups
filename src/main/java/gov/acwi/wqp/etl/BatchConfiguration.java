@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@EnableBatchProcessing
 public class BatchConfiguration {
 
 	@Autowired
@@ -114,27 +113,27 @@ public class BatchConfiguration {
 				.listener(listener)
 				.start(altitudeMethodFlow)
 				.next(aquiferTypeFlow)
-				.next(aqfrFlow)
-				.next(bodyPartFlow)
-				.next(citMethFlow)
-				.next(countryFlow)
-				.next(countyFlow)
-				.next(fxdFlow)
-				.next(hydCondCdFlow)
-				.next(hydEventCdFlow)
-				.next(latLongDatumFlow)
-				.next(latLongMethodFlow)
-				.next(methFlow)
-				.next(methWithCitFlow)
-				.next(natAqfrFlow)
-				.next(parmMethFlow)
-				.next(parmAliasFlow)
+//				.next(aqfrFlow)
+//				.next(bodyPartFlow)
+//				.next(citMethFlow)
+//				.next(countryFlow)
+//				.next(countyFlow)
+//				.next(fxdFlow)
+//				.next(hydCondCdFlow)
+//				.next(hydEventCdFlow)
+//				.next(latLongDatumFlow)
+//				.next(latLongMethodFlow)
+//				.next(methFlow)
+//				.next(methWithCitFlow)
+//				.next(natAqfrFlow)
+//				.next(parmMethFlow)
+//				.next(parmAliasFlow)
 				// parmMethFlow has to occur before parmFlow
-				.next(parmFlow)
-				.next(protoOrgFlow)
-				.next(siteTpFlow)
-				.next(stateFlow)
-				.next(tuFlow)
+//				.next(parmFlow)
+//				.next(protoOrgFlow)
+//				.next(siteTpFlow)
+//				.next(stateFlow)
+//				.next(tuFlow)
 				.next(valQualCdFlow)
 				.build()
 				.build();
