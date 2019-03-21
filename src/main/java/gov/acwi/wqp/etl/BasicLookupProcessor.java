@@ -6,12 +6,14 @@ public class BasicLookupProcessor extends BaseProcessor implements ItemProcessor
 	
 	@Override
 	public BasicLookup process(GwReflist gwReflist) throws Exception {
-		final String code = trimString(gwReflist.getGwRefCd());
-		final String name = trimString(gwReflist.getGwRefNm());
-		final String description = trimString(gwReflist.getGwRefDs());
-		final boolean validFlag = gwReflist.getGwValidFg() == 'Y';
+		BasicLookup result = new BasicLookup();
+		result.setCode(trimString(gwReflist.getGwRefCd()));
+		result.setName(trimString(gwReflist.getGwRefNm()));
+		result.setSortOrder(gwReflist.getGwSortNu());
+		result.setDescription(trimString(gwReflist.getGwRefDs()));
+		result.setValidFlag(gwReflist.getGwValidFg() == 'Y');
 		
-		return new BasicLookup(code, name, gwReflist.getGwSortNu(), description, validFlag);
+		return result;
 	}
 
 }
