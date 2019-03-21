@@ -46,13 +46,18 @@ public class AquiferTypeTransformation {
 
 	@Bean
 	public Step transformAquiferTypeStep() {
-		return stepBuilderFactory.get("transformaquiferTypeStep").<GwReflist, BasicLookup>chunk(10)
-				.reader(gwReflistAquiferTypeReader).processor(aquiferTypeProcessor).writer(aquiferTypeWriter).build();
+		return stepBuilderFactory
+				.get("transformAquiferTypeStep").<GwReflist, BasicLookup>chunk(1000)
+				.reader(gwReflistAquiferTypeReader)
+				.processor(aquiferTypeProcessor)
+				.writer(aquiferTypeWriter).build();
 	}
 
 	@Bean
 	public Flow aquiferTypeFlow() {
-		return new FlowBuilder<SimpleFlow>("aquiferTypeFlow").start(deleteAquiferTypeStep())
-				.next(transformAquiferTypeStep()).build();
+		return new FlowBuilder<SimpleFlow>("aquiferTypeFlow")
+				.start(deleteAquiferTypeStep())
+				.next(transformAquiferTypeStep())
+				.build();
 	}
 }

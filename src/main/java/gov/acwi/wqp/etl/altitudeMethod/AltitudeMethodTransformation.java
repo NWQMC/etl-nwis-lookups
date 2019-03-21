@@ -50,7 +50,7 @@ public class AltitudeMethodTransformation {
 	public Step transformAltitudeMethodStep() {
 		return stepBuilderFactory
 				.get("transformAltitudeMethodStep")
-				.<GwReflist, BasicLookup>chunk(10)
+				.<GwReflist, BasicLookup>chunk(1000)
 				.reader(gwReflistAltitudeMethodReader)
 				.processor(altitudeMethodProcessor)
 				.writer(altitudeMethodWriter)

@@ -1,4 +1,4 @@
-package gov.acwi.wqp.etl;
+package gov.acwi.wqp.etl.latLongDatum;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -14,28 +14,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.PreparedStatementSetter;
+import org.springframework.stereotype.Component;
 
-public abstract class TransformBasicLookup {
+import gov.acwi.wqp.etl.BasicLookup;
+import gov.acwi.wqp.etl.BasicLookupProcessor;
+import gov.acwi.wqp.etl.GwReflist;
+import gov.acwi.wqp.etl.GwReflistRowMapper;
 
-	private String sourceTableName;
-	private String destTableName;
-
-	public String getSourceTableName() {
-		return sourceTableName;
-	}
-
-	public void setSourceTableName(String sourceTableName) {
-		this.sourceTableName = sourceTableName;
-	}
-
-	public String getDestTableName() {
-		return destTableName;
-	}
-
-	public void setDestTableName(String destTableName) {
-		this.destTableName = destTableName;
-	}
-
+@Component
+public class TransformLatLongDatum {
+	
 	@Autowired
 	@Qualifier("wqpDataSource")
 	DataSource wqpDataSource;
@@ -44,40 +32,36 @@ public abstract class TransformBasicLookup {
 	@Qualifier("natdbDataSource")
 	DataSource natdbDataSource;
 
-	public TransformBasicLookup(String sourceTableName, String destTableName) {
-		this.sourceTableName = sourceTableName;
-		this.destTableName = destTableName;
+	
+	public TransformLatLongDatum() {
 	}
 	
-
 	@Bean
-	public JdbcCursorItemReader<GwReflist> gwReflistReader() {
+	public JdbcCursorItemReader<GwReflist> gwReflistLatLongDatumReader() {
 		return new JdbcCursorItemReaderBuilder<GwReflist>()
 				.dataSource(natdbDataSource)
-				.name("natdbGwReflist")
+				.name("natdbGwReflistLatLongDatum")
 				.preparedStatementSetter(new PreparedStatementSetter() {
 					 public void setValues(PreparedStatement preparedStatement) throws SQLException {
-					      preparedStatement.setString(1, sourceTableName);
+					      preparedStatement.setString(1, "scordm");
 					   }
 				})
 				.sql("select * from gw_reflist where gw_ed_tbl_nm = ?")
 				.rowMapper(new GwReflistRowMapper())
 				.build();
 	}
-
-	@Bean
-	public BasicLookupProcessor basicLookupProcessor() {
+	
+	@Bean BasicLookupProcessor latLongDatumProcessor() {
 		return new BasicLookupProcessor();
 	}
 
 	@Bean
-	public JdbcBatchItemWriter<BasicLookup> basicLookupWriter() {
+	public JdbcBatchItemWriter<BasicLookup> latLongDatumWriter() {
 		return new JdbcBatchItemWriterBuilder<BasicLookup>()
 				.itemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>())
-				.sql("INSERT INTO " + destTableName
+				.sql("INSERT INTO lat_long_datum"
 						+ " (code, name, sort_order, description, valid_flag) VALUES (:code, :name, :sortOrder, :description, :validFlag)")
 				.dataSource(wqpDataSource)
 				.build();
-	}
-
+	}	
 }

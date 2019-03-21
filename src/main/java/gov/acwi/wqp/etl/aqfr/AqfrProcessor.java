@@ -5,6 +5,9 @@ import org.springframework.batch.item.ItemProcessor;
 import gov.acwi.wqp.etl.BaseProcessor;
 
 public class AqfrProcessor extends BaseProcessor implements ItemProcessor<Aqfr, Aqfr> {
+	
+	public AqfrProcessor() {
+	}
 
 	@Override
 	public Aqfr process(Aqfr source) throws Exception {

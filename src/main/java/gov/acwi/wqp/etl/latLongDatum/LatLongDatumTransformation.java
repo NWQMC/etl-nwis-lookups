@@ -37,7 +37,8 @@ public class LatLongDatumTransformation {
 	@Autowired
 	@Qualifier("gwReflistLatLongDatumReader")
 	private JdbcCursorItemReader<GwReflist> gwReflistLatLongDatumReader;
-
+	
+	
 	@Autowired
 	@Qualifier("latLongDatumProcessor")
 	private BasicLookupProcessor latLongDatumProcessor;
