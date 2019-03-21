@@ -8,14 +8,17 @@ public class CitMethProcessor extends BaseProcessor implements ItemProcessor<Cit
 
 	@Override
 	public CitMeth process(CitMeth source) throws Exception {
-		final String methCd = trimString(source.getMethCd());
-		final String citNm = trimString(source.getCitNm());
-		final String citMethNo = trimString(source.getCitMethNo());
-		final String methSrcCd = trimString(source.getMethSrcCd());
-		final String citMethInitNm = trimString(source.getCitMethInitNm());
-		final String citMethRevNm = trimString(source.getCitMethRevNm());
+		CitMeth result = new CitMeth();
+		result.setCitMethId(source.getCitMethId());
+		result.setMethCd(trimString(source.getMethCd()));
+		result.setCitNm(trimString(source.getCitNm()));
+		result.setCitMethNo(trimString(source.getCitMethNo()));
+		result.setMethSrcCd(trimString(source.getMethSrcCd()));
+		result.setCitMethInitNm(trimString(source.getCitMethInitNm()));
+		result.setCitMethInitDt(source.getCitMethInitDt());
+		result.setCitMethRevNm(trimString(source.getCitMethRevNm()));
+		result.setCitMethRevDt(source.getCitMethRevDt());
 		
-		return new CitMeth(source.getCitMethId(), methCd, citNm, citMethNo, methSrcCd, citMethInitNm, source.getCitMethInitDt(),
-				citMethRevNm, source.getCitMethRevDt());
+		return result;
 	}
 }

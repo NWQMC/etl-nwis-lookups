@@ -11,12 +11,13 @@ public class AqfrProcessor extends BaseProcessor implements ItemProcessor<Aqfr, 
 
 	@Override
 	public Aqfr process(Aqfr source) throws Exception {
-		final String countryCd = trimString(source.getCountryCd());
-		final String stateCd = trimString(source.getStateCd());
-		final String aqfrCd = trimString(source.getAqfrCd());
-		final String aqfrNm = trimString(source.getAqfrNm());
-		final String aqfrMd = trimString(source.getAqfrMd());
+		Aqfr result = new Aqfr();
+		result.setCountryCd(trimString(source.getCountryCd()));
+		result.setStateCd(trimString(source.getStateCd()));
+		result.setAqfrCd(trimString(source.getAqfrCd()));
+		result.setAqfrNm(trimString(source.getAqfrNm()));
+		result.setAqfrMd(trimString(source.getAqfrMd()));
 		
-		return new Aqfr(countryCd, stateCd, aqfrCd, aqfrNm, aqfrMd);
+		return result;
 	}
 }

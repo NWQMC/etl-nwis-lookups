@@ -1,7 +1,6 @@
 package gov.acwi.wqp.etl;
 
 import org.springframework.batch.core.Job;
-import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.job.flow.Flow;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -113,27 +112,27 @@ public class BatchConfiguration {
 				.listener(listener)
 				.start(altitudeMethodFlow)
 				.next(aquiferTypeFlow)
-//				.next(aqfrFlow)
-//				.next(bodyPartFlow)
-//				.next(citMethFlow)
-//				.next(countryFlow)
-//				.next(countyFlow)
-//				.next(fxdFlow)
-//				.next(hydCondCdFlow)
-//				.next(hydEventCdFlow)
+				.next(aqfrFlow)
+				.next(bodyPartFlow)
+				.next(citMethFlow)
+				.next(countryFlow)
+				.next(countyFlow)
+				.next(fxdFlow)
+				.next(hydCondCdFlow)
+				.next(hydEventCdFlow)
 				.next(latLongDatumFlow)
 				.next(latLongMethodFlow)
-//				.next(methFlow)
-//				.next(methWithCitFlow)
-//				.next(natAqfrFlow)
-//				.next(parmMethFlow)
-//				.next(parmAliasFlow)
+				.next(methFlow)
+				.next(methWithCitFlow)
+				.next(natAqfrFlow)
+				.next(parmMethFlow)
+				.next(parmAliasFlow)
 				// parmMethFlow has to occur before parmFlow
-//				.next(parmFlow)
-//				.next(protoOrgFlow)
-//				.next(siteTpFlow)
-//				.next(stateFlow)
-//				.next(tuFlow)
+				.next(parmFlow)
+				.next(protoOrgFlow)
+				.next(siteTpFlow)
+				.next(stateFlow)
+				.next(tuFlow)
 				.next(valQualCdFlow)
 				.build()
 				.build();

@@ -8,14 +8,15 @@ public class ParmAliasProcessor extends BaseProcessor implements ItemProcessor<P
 
 	@Override
 	public ParmAlias process(ParmAlias source) throws Exception {
-		final String parmCd = trimString(source.getParmCd());
-		final String parmAliasCd = trimString(source.getParmAliasCd());
-		final String parmAliasNm = trimString(source.getParmAliasNm());
-		final String parmAliasInitNm = trimString(source.getParmAliasInitNm());
-		final String parmAliasRevNm = trimString(source.getParmAliasRevNm());
+		ParmAlias result = new ParmAlias();
+		result.setParmCd(trimString(source.getParmCd()));
+		result.setParmAliasCd(trimString(source.getParmAliasCd()));
+		result.setParmAliasNm(trimString(source.getParmAliasNm()));
+		result.setParmAliasInitDt(source.getParmAliasInitDt());
+		result.setParmAliasInitNm(trimString(source.getParmAliasInitNm()));
+		result.setParmAliasRevDt(source.getParmAliasRevDt());
+		result.setParmAliasRevNm(trimString(source.getParmAliasRevNm()));
 		
-		return new ParmAlias(parmCd, parmAliasCd, parmAliasNm,
-				source.getParmAliasInitDt(), parmAliasInitNm, source.getParmAliasRevDt(), 
-				parmAliasRevNm);
+		return result;
 	}
 }

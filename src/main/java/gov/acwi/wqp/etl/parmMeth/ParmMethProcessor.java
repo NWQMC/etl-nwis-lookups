@@ -8,18 +8,18 @@ public class ParmMethProcessor extends BaseProcessor implements ItemProcessor<Pa
 
 	@Override
 	public ParmMeth process(ParmMeth source) throws Exception {
-		final String parmCd = trimString(source.getParmCd());
-		final String methCd = trimString(source.getMethCd());
-		final String parmMethLgcyCd = trimString(source.getParmMethLgcyCd());
-		final String parmMethRndTx = trimString(source.getParmMethRndTx());
-		final String parmMethInitNm = trimString(source.getParmMethInitNm());
-		final String parmMethRevNm = trimString(source.getParmMethRevNm());
-		final String multiplier = trimString(source.getMultiplier());
+		ParmMeth result = new ParmMeth();
+		result.setParmCd(trimString(source.getParmCd()));
+		result.setMethCd(trimString(source.getMethCd()));
+		result.setParmMethLgcyCd(trimString(source.getParmMethLgcyCd()));
+		result.setParmMethRndTx(trimString(source.getParmMethRndTx()));
+		result.setParmMethInitNm(trimString(source.getParmMethInitNm()));
+		result.setParmMethInitDt(source.getParmMethInitDt());
+		result.setParmMethRevNm(trimString(source.getParmMethRevNm()));
+		result.setParmMethRevDt(source.getParmMethRevDt());
+		result.setParmMethVldFg(source.isParmMethVldFg());
+		result.setMultiplier(trimString(source.getMultiplier()));
 		
-		
-		
-		return new ParmMeth(parmCd, methCd, parmMethLgcyCd, parmMethRndTx, parmMethInitNm, 
-				source.getParmMethInitDt(), parmMethRevNm, source.getParmMethRevDt(),
-				source.isParmMethVldFg(), multiplier);
+		return result;
 	}
 }

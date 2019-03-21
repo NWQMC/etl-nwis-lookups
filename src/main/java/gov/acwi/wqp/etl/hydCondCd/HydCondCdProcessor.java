@@ -8,10 +8,13 @@ public class HydCondCdProcessor extends BaseProcessor implements ItemProcessor<H
 
 	@Override
 	public HydCondCd process(HydCondCd source) throws Exception {
-		final String hydCondNm = trimString(source.getHydCondNm());
-		final String hydCondDs = trimString(source.getHydCondDs());
+		HydCondCd result = new HydCondCd();
+		result.setHydCondCd(source.getHydCondCd());
+		result.setHydCondSrtNu(source.getHydCondSrtNu());
+		result.setHydCondVldFg(source.isHydCondVldFg());
+		result.setHydCondNm(trimString(source.getHydCondNm()));
+		result.setHydCondDs(trimString(source.getHydCondDs()));
 		
-		return new HydCondCd(source.getHydCondCd(), source.getHydCondSrtNu(), 
-				source.isHydCondVldFg(), hydCondNm, hydCondDs);
+		return result;
 	}
 }

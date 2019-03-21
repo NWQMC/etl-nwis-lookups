@@ -8,14 +8,15 @@ public class SiteTpProcessor extends BaseProcessor implements ItemProcessor<Site
 
 	@Override
 	public SiteTp process(SiteTp source) throws Exception {
-
-		final String siteTpCd = trimString(source.getSiteTpCd());
-		final String siteTpNm = trimString(source.getSiteTpNm());
-		final String siteTpLn = trimString(source.getSiteTpLn());
-		final String siteTpDs = trimString(source.getSiteTpDs());
+		SiteTp result = new SiteTp();
+		result.setSiteTpCd(trimString(source.getSiteTpCd()));
+		result.setSiteTpSrtNu(source.getSiteTpSrtNu());
+		result.setSiteTpVldFg(source.isSiteTpVldFg());
+		result.setSiteTpPrimFg(source.isSiteTpPrimFg());
+		result.setSiteTpNm(trimString(source.getSiteTpNm()));
+		result.setSiteTpLn(trimString(source.getSiteTpLn()));
+		result.setSiteTpDs(trimString(source.getSiteTpDs()));
 		
-		
-		return new SiteTp(siteTpCd, source.getSiteTpSrtNu(), source.isSiteTpVldFg(),
-				source.isSiteTpPrimFg(), siteTpNm, siteTpLn, siteTpDs);
+		return result;
 	}
 }

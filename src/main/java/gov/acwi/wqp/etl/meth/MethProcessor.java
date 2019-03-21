@@ -8,18 +8,18 @@ public class MethProcessor extends BaseProcessor implements ItemProcessor<Meth, 
 
 	@Override
 	public Meth process(Meth source) throws Exception {
-		final String methCd = trimString(source.getMethCd());
-		final String methTp = trimString(source.getMethTp());
-		final String methNm = trimString(source.getMethNm());
-		final String methDs = trimString(source.getMethDs());
-		final String methRndOwnerCd = trimString(source.getMethRndOwnerCd());
-		final String discipleCd = trimString(source.getDisciplineCd());
-		final String methInitNm = trimString(source.getMethInitNm());
-		final String methRevNm = trimString(source.getMethRevNm());
-		
-		
-		
-		return new Meth(methCd, methTp, methNm, methDs, methRndOwnerCd, discipleCd,
-				methInitNm, source.getMethInitDt(), methRevNm, source.getMethRevDt());
+		Meth result = new Meth();
+		result.setMethCd(trimString(source.getMethCd()));
+		result.setMethTp(trimString(source.getMethTp()));
+		result.setMethNm(trimString(source.getMethNm()));
+		result.setMethDs(trimString(source.getMethDs()));
+		result.setMethRndOwnerCd(trimString(source.getMethRndOwnerCd()));
+		result.setDisciplineCd(trimString(source.getDisciplineCd()));
+		result.setMethInitNm(trimString(source.getMethInitNm()));
+		result.setMethInitDt(source.getMethInitDt());
+		result.setMethRevNm(trimString(source.getMethRevNm()));
+		result.setMethRevDt(source.getMethRevDt());
+
+		return result;
 	}
 }

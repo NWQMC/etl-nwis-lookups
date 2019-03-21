@@ -3,7 +3,7 @@ package gov.acwi.wqp.etl;
 
 public abstract class BaseProcessor {
 	
-	final static String TRIM = "^\\s+|\\s+$";
+	private final static String TRIM = "^\\s+|\\s+$";
 	
 	protected String trimString(String value) {
 		if (null != value) {

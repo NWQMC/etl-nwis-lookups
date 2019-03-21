@@ -8,19 +8,19 @@ public class CountyProcessor extends BaseProcessor implements ItemProcessor<Coun
 
 	@Override
 	public County process(County source) throws Exception {
-		final String countryCd = trimString(source.getCountryCd());
-		final String stateCd = trimString(source.getStateCd());
-		final String countyCd = trimString(source.getCountyCd());
-		final String countyNm = trimString(source.getCountyNm());
-		final String countyMaxLatVa = trimString(source.getCountyMaxLatVa());
-		final String countyMinLatVa = trimString(source.getCountyMinLatVa());
-		final String countyMaxLongVa = trimString(source.getCountyMaxLongVa());
-		final String countyMinLongVa = trimString(source.getCountyMinLongVa());
-		final String countyMaxAltVa = trimString(source.getCountyMaxAltVa());
-		final String countyMinAltVa = trimString(source.getCountyMinAltVa());
-		final String countyMd = trimString(source.getCountyMd());
+		County result = new County();
+		result.setCountryCd(trimString(source.getCountryCd()));
+		result.setStateCd(trimString(source.getStateCd()));
+		result.setCountyCd(trimString(source.getCountyCd()));
+		result.setCountyNm(trimString(source.getCountyNm()));
+		result.setCountyMaxLatVa(trimString(source.getCountyMaxLatVa()));
+		result.setCountyMinLatVa(trimString(source.getCountyMinLatVa()));
+		result.setCountyMaxLongVa(trimString(source.getCountyMaxLongVa()));
+		result.setCountyMinLongVa(trimString(source.getCountyMinLongVa()));
+		result.setCountyMaxAltVa(trimString(source.getCountyMaxAltVa()));
+		result.setCountyMinAltVa(trimString(source.getCountyMinAltVa()));
+		result.setCountyMd(trimString(source.getCountyMd()));
 		
-		return new County(countryCd, stateCd, countyCd, countyNm, countyMaxLatVa, countyMinLatVa, countyMaxLongVa,
-				countyMinLongVa, countyMaxAltVa, countyMinAltVa, countyMd);
+		return result;
 	}
 }

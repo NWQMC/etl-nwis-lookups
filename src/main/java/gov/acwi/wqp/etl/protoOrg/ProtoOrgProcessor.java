@@ -8,14 +8,16 @@ public class ProtoOrgProcessor extends BaseProcessor implements ItemProcessor<Pr
 
 	@Override
 	public ProtoOrg process(ProtoOrg source) throws Exception {
-
-		final String protoOrgCd = trimString(source.getProtoOrgCd());
-		final String protoOrgNm = trimString(source.getProtoOrgNm());
-		final String protoOrgFvCd = trimString(source.getProtoOrgFvCd());
-		final String protoOrgInitNm = trimString(source.getProtoOrgInitNm());
-		final String protoOrgRevNm = trimString(source.getProtoOrgRevNm());
+		ProtoOrg result = new ProtoOrg();
+		result.setProtoOrgCd(trimString(source.getProtoOrgCd()));
+		result.setProtoOrgNm(trimString(source.getProtoOrgNm()));
+		result.setProtoOrgFvCd(trimString(source.getProtoOrgFvCd()));
+		result.setProtoOrgVldFg(source.isProtoOrgVldFg());
+		result.setProtoOrgInitNm(trimString(source.getProtoOrgInitNm()));
+		result.setProtoOrgInitDt(source.getProtoOrgInitDt());
+		result.setProtoOrgRevNm(trimString(source.getProtoOrgRevNm()));
+		result.setProtoOrgRevDt(source.getProtoOrgRevDt());
 		
-		return new ProtoOrg(protoOrgCd, protoOrgNm, protoOrgFvCd, source.isProtoOrgVldFg(), 
-				protoOrgInitNm, source.getProtoOrgInitDt(), protoOrgRevNm, source.getProtoOrgRevDt());
+		return result;
 	}
 }

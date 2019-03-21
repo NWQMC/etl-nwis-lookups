@@ -8,10 +8,13 @@ public class HydEventCdProcessor extends BaseProcessor implements ItemProcessor<
 
 	@Override
 	public HydEventCd process(HydEventCd source) throws Exception {
-		final String hydEventNm = trimString(source.getHydEventNm());
-		final String hydEventDs = trimString(source.getHydEventDs());
+		HydEventCd result = new HydEventCd();
+		result.setHydEventCd(source.getHydEventCd());
+		result.setHydEventSrtNu(source.getHydEventSrtNu());
+		result.setHydEventVldFg(source.isHydEventVldFg());
+		result.setHydEventNm(trimString(source.getHydEventNm()));
+		result.setHydEventDs(trimString(source.getHydEventDs()));
 		
-		return new HydEventCd(source.getHydEventCd(), source.getHydEventSrtNu(), 
-				source.isHydEventVldFg(), hydEventNm, hydEventDs);
+		return result;
 	}
 }

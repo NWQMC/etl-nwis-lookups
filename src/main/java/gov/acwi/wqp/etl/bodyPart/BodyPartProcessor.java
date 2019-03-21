@@ -8,8 +8,10 @@ public class BodyPartProcessor extends BaseProcessor implements ItemProcessor<Bo
 
 	@Override
 	public BodyPart process(BodyPart source) throws Exception {
-		final String bodyPartNm = trimString(source.getBodyPartNm());
+		BodyPart result = new BodyPart();
+		result.setBodyPartId(source.getBodyPartId());
+		result.setBodyPartNm(trimString(source.getBodyPartNm()));
 		
-		return new BodyPart(source.getBodyPartId(), bodyPartNm);
+		return result;
 	}
 }

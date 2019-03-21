@@ -8,14 +8,16 @@ public class FxdProcessor extends BaseProcessor implements ItemProcessor<Fxd, Fx
 
 	@Override
 	public Fxd process(Fxd source) throws Exception {
-		final String parmCd = trimString(source.getParmCd());
-		final String fxdNm = trimString(source.getFxdNm());
-		final String fxdTx = trimString(source.getFxdTx());
-		final String fxdInitNm = trimString(source.getFxdInitNm());
-		final String fxdRevNm = trimString(source.getFxdRevNm());
+		Fxd result = new Fxd();
+		result.setParmCd(trimString(source.getParmCd()));
+		result.setFxdVa(source.getFxdVa());
+		result.setFxdNm(trimString(source.getFxdNm()));
+		result.setFxdTx(trimString(source.getFxdTx()));
+		result.setFxdInitDt(source.getFxdInitDt());
+		result.setFxdInitNm(trimString(source.getFxdInitNm()));
+		result.setFxdRevDt(source.getFxdRevDt());
+		result.setFxdRevNm(trimString(source.getFxdRevNm()));
 		
-		
-		return new Fxd(parmCd, source.getFxdVa(), fxdNm, fxdTx, 
-				source.getFxdInitDt(), fxdInitNm, source.getFxdRevDt(), fxdRevNm);
+		return result;
 	}
 }

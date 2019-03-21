@@ -8,12 +8,14 @@ public class ValQualCdProcessor extends BaseProcessor implements ItemProcessor<V
 
 	@Override
 	public ValQualCd process(ValQualCd source) throws Exception {
-		final String valQualCd = trimString(source.getValQualCd());
-		final String valQualTp = trimString(source.getValQualTp());
-		final String valQualNm = trimString(source.getValQualNm());
-		final String valQualDs = trimString(source.getValQualDs());
+		ValQualCd result = new ValQualCd();
+		result.setValQualCd(trimString(source.getValQualCd()));
+		result.setValQualTp(trimString(source.getValQualTp()));
+		result.setValQualSrtNu(source.getValQualSrtNu());
+		result.setValQualVldFg(source.isValQualVldFg());
+		result.setValQualNm(trimString(source.getValQualNm()));
+		result.setValQualDs(trimString(source.getValQualDs()));
 		
-		return new ValQualCd(valQualCd, valQualTp, source.getValQualSrtNu(),
-				source.isValQualVldFg(), valQualNm, valQualDs);
+		return result;
 	}
 }

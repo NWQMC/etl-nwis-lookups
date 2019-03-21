@@ -8,11 +8,12 @@ public class NatAqfrProcessor extends BaseProcessor implements ItemProcessor<Nat
 
 	@Override
 	public NatAqfr process(NatAqfr source) throws Exception {
-		final String countryCd = trimString(source.getCountryCd());
-		final String stateCd = trimString(source.getStateCd());
-		final String natAqfrCd = trimString(source.getNatAqfrCd());
-		final String natAqfrNm = trimString(source.getNatAqfrNm());
+		NatAqfr result = new NatAqfr();
+		result.setCountryCd(trimString(source.getCountryCd()));
+		result.setStateCd(trimString(source.getStateCd()));
+		result.setNatAqfrCd(trimString(source.getNatAqfrCd()));
+		result.setNatAqfrNm(trimString(source.getNatAqfrNm()));
 		
-		return new NatAqfr(countryCd, stateCd, natAqfrCd, natAqfrNm);
+		return result;
 	}
 }

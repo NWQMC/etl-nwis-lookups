@@ -8,9 +8,10 @@ public class CountryProcessor extends BaseProcessor implements ItemProcessor<Cou
 
 	@Override
 	public Country process(Country source) throws Exception {
-		final String countryCd = trimString(source.getCountryCd());
-		final String countryNm = trimString(source.getCountryNm());
+		Country result = new Country();
+		result.setCountryCd(trimString(source.getCountryCd()));
+		result.setCountryNm(trimString(source.getCountryNm()));
 		
-		return new Country(countryCd, countryNm);
+		return result;
 	}
 }
