@@ -30,7 +30,7 @@ public class TransformAquiferType {
 
 	@Autowired
 	@Qualifier("natdbDataSource")
-	private DataSource natdbDataSource;
+	DataSource natdbDataSource;
 
 	
 	@Bean
