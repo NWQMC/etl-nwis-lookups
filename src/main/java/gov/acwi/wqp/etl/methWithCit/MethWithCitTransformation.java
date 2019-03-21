@@ -23,6 +23,12 @@ public class MethWithCitTransformation {
 	@Qualifier("deleteMethWithCit")
 	private Tasklet deleteMethWithCit;
 	
+	// We are using a tasklet for this ETL. The JdbcCursorItemReader failed when
+	// the aggregation part of the query was included
+	@Autowired
+	@Qualifier("taskMethWithCitMeth")
+	private Tasklet taskMethWithCitMeth;
+	
 	@Bean
 	public Step deleteMethWithCitStep() {
 		return stepBuilderFactory
@@ -30,12 +36,6 @@ public class MethWithCitTransformation {
 				.tasklet(deleteMethWithCit)
 				.build();
 	}
-	
-	// We are using a tasklet for this ETL. The JdbcCursorItemReader failed when
-	// the aggregation part of the query was included
-	@Autowired
-	@Qualifier("taskMethWithCitMeth")
-	private Tasklet taskMethWithCitMeth;
 	
 	@Bean
 	public Step transformMethWithCitStep() {

@@ -23,13 +23,6 @@ public class ParmMethTransformation {
 	@Qualifier("deleteParmMeth")
 	private Tasklet deleteParmMeth;
 	
-	@Bean
-	public Step deleteParmMethStep() {
-		return stepBuilderFactory.get("deleteParmMethStep")
-				.tasklet(deleteParmMeth)
-				.build();
-	}
-	
 	@Autowired
 	@Qualifier("parmMethReader")
 	private JdbcCursorItemReader<ParmMeth> parmMethReader;
@@ -41,6 +34,13 @@ public class ParmMethTransformation {
 	@Autowired
 	@Qualifier("parmMethWriter")
 	private JdbcBatchItemWriter<ParmMeth> parmMethWriter;
+	
+	@Bean
+	public Step deleteParmMethStep() {
+		return stepBuilderFactory.get("deleteParmMethStep")
+				.tasklet(deleteParmMeth)
+				.build();
+	}
 	
 	@Bean
 	public Step transformParmMethStep() {

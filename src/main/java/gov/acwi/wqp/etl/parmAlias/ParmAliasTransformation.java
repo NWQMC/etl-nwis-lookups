@@ -23,13 +23,6 @@ public class ParmAliasTransformation {
 	@Qualifier("deleteParmAlias")
 	private Tasklet deleteParmAlias;
 	
-	@Bean
-	public Step deleteParmAliasStep() {
-		return stepBuilderFactory.get("deleteParmAliasStep")
-				.tasklet(deleteParmAlias)
-				.build();
-	}
-	
 	@Autowired
 	@Qualifier("parmAliasReader")
 	private JdbcCursorItemReader<ParmAlias> parmAliasReader;
@@ -41,6 +34,13 @@ public class ParmAliasTransformation {
 	@Autowired
 	@Qualifier("parmAliasWriter")
 	private JdbcBatchItemWriter<ParmAlias> parmAliasWriter;
+	
+	@Bean
+	public Step deleteParmAliasStep() {
+		return stepBuilderFactory.get("deleteParmAliasStep")
+				.tasklet(deleteParmAlias)
+				.build();
+	}
 	
 	@Bean
 	public Step transformParmAliasStep() {

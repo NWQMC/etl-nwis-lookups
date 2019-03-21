@@ -23,13 +23,6 @@ public class MethTransformation {
 	@Qualifier("deleteMeth")
 	private Tasklet deleteMeth;
 	
-	@Bean
-	public Step deleteMethStep() {
-		return stepBuilderFactory.get("deleteMethStep")
-				.tasklet(deleteMeth)
-				.build();
-	}
-	
 	@Autowired
 	@Qualifier("methReader")
 	private JdbcCursorItemReader<Meth> methReader;
@@ -41,6 +34,13 @@ public class MethTransformation {
 	@Autowired
 	@Qualifier("methWriter")
 	private JdbcBatchItemWriter<Meth> methWriter;
+	
+	@Bean
+	public Step deleteMethStep() {
+		return stepBuilderFactory.get("deleteMethStep")
+				.tasklet(deleteMeth)
+				.build();
+	}
 	
 	@Bean
 	public Step transformMethStep() {

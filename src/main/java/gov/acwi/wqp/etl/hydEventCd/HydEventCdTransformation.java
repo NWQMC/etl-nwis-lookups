@@ -23,13 +23,6 @@ public class HydEventCdTransformation {
 	@Qualifier("deleteHydEventCd")
 	private Tasklet deleteHydEventCd;
 	
-	@Bean
-	public Step deleteHydEventCdStep() {
-		return stepBuilderFactory.get("deleteHydEventCdStep")
-				.tasklet(deleteHydEventCd)
-				.build();
-	}
-	
 	@Autowired
 	@Qualifier("hydEventCdReader")
 	private JdbcCursorItemReader<HydEventCd> hydEventCdReader;
@@ -41,6 +34,13 @@ public class HydEventCdTransformation {
 	@Autowired
 	@Qualifier("hydEventCdWriter")
 	private JdbcBatchItemWriter<HydEventCd> hydEventCdWriter;
+	
+	@Bean
+	public Step deleteHydEventCdStep() {
+		return stepBuilderFactory.get("deleteHydEventCdStep")
+				.tasklet(deleteHydEventCd)
+				.build();
+	}
 	
 	@Bean
 	public Step transformHydEventCdStep() {

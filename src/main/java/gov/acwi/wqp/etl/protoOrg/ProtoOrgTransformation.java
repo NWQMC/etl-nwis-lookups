@@ -23,13 +23,6 @@ public class ProtoOrgTransformation {
 	@Qualifier("deleteProtoOrg")
 	private Tasklet deleteProtoOrg;
 	
-	@Bean
-	public Step deleteProtoOrgStep() {
-		return stepBuilderFactory.get("deleteProtoOrgStep")
-				.tasklet(deleteProtoOrg)
-				.build();
-	}
-	
 	@Autowired
 	@Qualifier("protoOrgReader")
 	private JdbcCursorItemReader<ProtoOrg> protoOrgReader;
@@ -41,6 +34,13 @@ public class ProtoOrgTransformation {
 	@Autowired
 	@Qualifier("protoOrgWriter")
 	private JdbcBatchItemWriter<ProtoOrg> protoOrgWriter;
+	
+	@Bean
+	public Step deleteProtoOrgStep() {
+		return stepBuilderFactory.get("deleteProtoOrgStep")
+				.tasklet(deleteProtoOrg)
+				.build();
+	}
 	
 	@Bean
 	public Step transformProtoOrgStep() {

@@ -23,13 +23,6 @@ public class BodyPartTransformation {
 	@Qualifier("deleteBodyPart")
 	private Tasklet deleteBodyPart;
 	
-	@Bean
-	public Step deleteBodyPartStep() {
-		return stepBuilderFactory.get("deleteBodyPart")
-				.tasklet(deleteBodyPart)
-				.build();
-	}
-	
 	@Autowired
 	@Qualifier("bodyPartReader")
 	private JdbcCursorItemReader<BodyPart> bodyPartReader;
@@ -41,6 +34,13 @@ public class BodyPartTransformation {
 	@Autowired
 	@Qualifier("bodyPartWriter")
 	private JdbcBatchItemWriter<BodyPart> bodyPartWriter;
+	
+	@Bean
+	public Step deleteBodyPartStep() {
+		return stepBuilderFactory.get("deleteBodyPart")
+				.tasklet(deleteBodyPart)
+				.build();
+	}
 	
 	@Bean
 	public Step transformBodyPartStep() {

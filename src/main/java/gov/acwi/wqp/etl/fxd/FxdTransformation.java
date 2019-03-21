@@ -23,13 +23,6 @@ public class FxdTransformation {
 	@Qualifier("deleteFxd")
 	private Tasklet deleteFxd;
 	
-	@Bean
-	public Step deleteFxdStep() {
-		return stepBuilderFactory.get("deleteFxdStep")
-				.tasklet(deleteFxd)
-				.build();
-	}
-	
 	@Autowired
 	@Qualifier("fxdReader")
 	private JdbcCursorItemReader<Fxd> fxdReader;
@@ -41,6 +34,13 @@ public class FxdTransformation {
 	@Autowired
 	@Qualifier("fxdWriter")
 	private JdbcBatchItemWriter<Fxd> fxdWriter;
+	
+	@Bean
+	public Step deleteFxdStep() {
+		return stepBuilderFactory.get("deleteFxdStep")
+				.tasklet(deleteFxd)
+				.build();
+	}
 	
 	@Bean
 	public Step transformFxdStep() {

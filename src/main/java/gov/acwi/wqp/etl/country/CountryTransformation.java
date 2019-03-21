@@ -23,13 +23,6 @@ public class CountryTransformation {
 	@Qualifier("deleteCountry")
 	private Tasklet deleteCountry;
 	
-	@Bean
-	public Step deleteCountryStep() {
-		return stepBuilderFactory.get("deleteCountryStep")
-				.tasklet(deleteCountry)
-				.build();
-	}
-	
 	@Autowired
 	@Qualifier("countryReader")
 	private JdbcCursorItemReader<Country> countryReader;
@@ -41,6 +34,13 @@ public class CountryTransformation {
 	@Autowired
 	@Qualifier("countryWriter")
 	private JdbcBatchItemWriter<Country> countryWriter;
+	
+	@Bean
+	public Step deleteCountryStep() {
+		return stepBuilderFactory.get("deleteCountryStep")
+				.tasklet(deleteCountry)
+				.build();
+	}
 	
 	@Bean
 	public Step transformCountryStep() {

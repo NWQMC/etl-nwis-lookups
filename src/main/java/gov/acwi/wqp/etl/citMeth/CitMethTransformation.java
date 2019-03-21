@@ -23,13 +23,6 @@ public class CitMethTransformation {
 	@Qualifier("deleteCitMeth")
 	private Tasklet deleteCitMeth;
 	
-	@Bean
-	public Step deleteCitMethStep() {
-		return stepBuilderFactory.get("deleteCitMeth")
-				.tasklet(deleteCitMeth)
-				.build();
-	}
-	
 	@Autowired
 	@Qualifier("citMethReader")
 	private JdbcCursorItemReader<CitMeth> citMethReader;
@@ -41,6 +34,13 @@ public class CitMethTransformation {
 	@Autowired
 	@Qualifier("citMethWriter")
 	private JdbcBatchItemWriter<CitMeth> citMethWriter;
+	
+	@Bean
+	public Step deleteCitMethStep() {
+		return stepBuilderFactory.get("deleteCitMeth")
+				.tasklet(deleteCitMeth)
+				.build();
+	}
 	
 	@Bean
 	public Step transformCitMethStep() {

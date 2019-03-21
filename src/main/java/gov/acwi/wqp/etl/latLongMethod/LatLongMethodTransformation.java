@@ -27,13 +27,6 @@ public class LatLongMethodTransformation {
 	@Qualifier("deleteLatLongMethod")
 	private Tasklet deleteLatLongMethod;
 
-	@Bean
-	public Step deleteLatLongMethodStep() {
-		return stepBuilderFactory.get("deleteLatLongMethodStep")
-				.tasklet(deleteLatLongMethod)
-				.build();
-	}
-
 	@Autowired
 	@Qualifier("gwReflistLatLongMethodReader")
 	private JdbcCursorItemReader<GwReflist> gwReflistLatLongMethodReader;
@@ -45,6 +38,13 @@ public class LatLongMethodTransformation {
 	@Autowired
 	@Qualifier("latLongMethodWriter")
 	private JdbcBatchItemWriter<BasicLookup> latLongMethodWriter;
+
+	@Bean
+	public Step deleteLatLongMethodStep() {
+		return stepBuilderFactory.get("deleteLatLongMethodStep")
+				.tasklet(deleteLatLongMethod)
+				.build();
+	}
 
 	@Bean
 	public Step transformLatLongMethodStep() {

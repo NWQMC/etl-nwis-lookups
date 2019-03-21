@@ -23,13 +23,6 @@ public class NatAqfrTransformation {
 	@Qualifier("deleteNatAqfr")
 	private Tasklet deleteNatAqfr;
 	
-	@Bean
-	public Step deleteNatAqfrStep() {
-		return stepBuilderFactory.get("deleteNatAqfrStep")
-				.tasklet(deleteNatAqfr)
-				.build();
-	}
-	
 	@Autowired
 	@Qualifier("natAqfrReader")
 	private JdbcCursorItemReader<NatAqfr> natAqfrReader;
@@ -41,6 +34,13 @@ public class NatAqfrTransformation {
 	@Autowired
 	@Qualifier("natAqfrWriter")
 	private JdbcBatchItemWriter<NatAqfr> natAqfrWriter;
+	
+	@Bean
+	public Step deleteNatAqfrStep() {
+		return stepBuilderFactory.get("deleteNatAqfrStep")
+				.tasklet(deleteNatAqfr)
+				.build();
+	}
 	
 	@Bean
 	public Step transformNatAqfrStep() {

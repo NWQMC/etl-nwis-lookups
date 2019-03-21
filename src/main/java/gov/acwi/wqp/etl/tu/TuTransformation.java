@@ -23,13 +23,6 @@ public class TuTransformation {
 	@Qualifier("deleteTu")
 	private Tasklet deleteTu;
 	
-	@Bean
-	public Step deleteTuStep() {
-		return stepBuilderFactory.get("deleteTuStep")
-				.tasklet(deleteTu)
-				.build();
-	}
-	
 	@Autowired
 	@Qualifier("tuReader")
 	private JdbcCursorItemReader<Tu> tuReader;
@@ -41,6 +34,13 @@ public class TuTransformation {
 	@Autowired
 	@Qualifier("tuWriter")
 	private JdbcBatchItemWriter<Tu> tuWriter;
+	
+	@Bean
+	public Step deleteTuStep() {
+		return stepBuilderFactory.get("deleteTuStep")
+				.tasklet(deleteTu)
+				.build();
+	}
 	
 	@Bean
 	public Step transformTuStep() {

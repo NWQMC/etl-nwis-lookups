@@ -23,13 +23,6 @@ public class ValQualCdTransformation {
 	@Qualifier("deleteValQualCd")
 	private Tasklet deleteValQualCd;
 	
-	@Bean
-	public Step deleteValQualCdStep() {
-		return stepBuilderFactory.get("deleteValQualCd")
-				.tasklet(deleteValQualCd)
-				.build();
-	}
-	
 	@Autowired
 	@Qualifier("valQualCdReader")
 	private JdbcCursorItemReader<ValQualCd> valQualCdReader;
@@ -41,6 +34,13 @@ public class ValQualCdTransformation {
 	@Autowired
 	@Qualifier("valQualCdWriter")
 	private JdbcBatchItemWriter<ValQualCd> valQualCdWriter;
+	
+	@Bean
+	public Step deleteValQualCdStep() {
+		return stepBuilderFactory.get("deleteValQualCd")
+				.tasklet(deleteValQualCd)
+				.build();
+	}
 	
 	@Bean
 	public Step transformValQualCdStep() {

@@ -26,13 +26,6 @@ public class ParmTransformation {
 	@Qualifier("deleteParm")
 	private Tasklet deleteParm;
 	
-	@Bean
-	public Step deleteParmStep() {
-		return stepBuilderFactory.get("deleteParmStep")
-				.tasklet(deleteParm)
-				.build();
-	}
-	
 	@Autowired
 	@Qualifier("parmReader")
 	private JdbcCursorItemReader<Parm> parmReader;
@@ -48,6 +41,13 @@ public class ParmTransformation {
 	@Autowired
 	@Qualifier("addMultiplierColumn")
 	private Tasklet addMultiplierColumn;
+	
+	@Bean
+	public Step deleteParmStep() {
+		return stepBuilderFactory.get("deleteParmStep")
+				.tasklet(deleteParm)
+				.build();
+	}
 	
 	@Bean 
 	public Step addMultiplierColumnStep() {

@@ -23,13 +23,6 @@ public class AqfrTransformation {
 	@Qualifier("deleteAqfr")
 	private Tasklet deleteAqfr;
 	
-	@Bean
-	public Step deleteAqfrStep() {
-		return stepBuilderFactory.get("deleteAqfr")
-				.tasklet(deleteAqfr)
-				.build();
-	}
-	
 	@Autowired
 	@Qualifier("aqfrReader")
 	private JdbcCursorItemReader<Aqfr> aqfrReader;
@@ -41,6 +34,13 @@ public class AqfrTransformation {
 	@Autowired
 	@Qualifier("aqfrWriter")
 	private JdbcBatchItemWriter<Aqfr> aqfrWriter;
+	
+	@Bean
+	public Step deleteAqfrStep() {
+		return stepBuilderFactory.get("deleteAqfr")
+				.tasklet(deleteAqfr)
+				.build();
+	}
 	
 	@Bean
 	public Step transformAqfrStep() {

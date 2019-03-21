@@ -23,13 +23,6 @@ public class CountyTransformation {
 	@Qualifier("deleteCounty")
 	private Tasklet deleteCounty;
 	
-	@Bean
-	public Step deleteCountyStep() {
-		return stepBuilderFactory.get("deleteCountyStep")
-				.tasklet(deleteCounty)
-				.build();
-	}
-	
 	@Autowired
 	@Qualifier("countyReader")
 	private JdbcCursorItemReader<County> countyReader;
@@ -41,6 +34,13 @@ public class CountyTransformation {
 	@Autowired
 	@Qualifier("countyWriter")
 	private JdbcBatchItemWriter<County> countyWriter;
+	
+	@Bean
+	public Step deleteCountyStep() {
+		return stepBuilderFactory.get("deleteCountyStep")
+				.tasklet(deleteCounty)
+				.build();
+	}
 	
 	@Bean
 	public Step transformCountyStep() {

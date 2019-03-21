@@ -23,11 +23,6 @@ public class StateTransformation {
 	@Qualifier("deleteState")
 	private Tasklet deleteState;
 
-	@Bean
-	public Step deleteStateStep() {
-		return stepBuilderFactory.get("deleteStateStep").tasklet(deleteState).build();
-	}
-
 	@Autowired
 	@Qualifier("stateReader")
 	private JdbcCursorItemReader<State> stateReader;
@@ -39,6 +34,11 @@ public class StateTransformation {
 	@Autowired
 	@Qualifier("stateWriter")
 	private JdbcBatchItemWriter<State> stateWriter;
+
+	@Bean
+	public Step deleteStateStep() {
+		return stepBuilderFactory.get("deleteStateStep").tasklet(deleteState).build();
+	}
 
 	@Bean
 	public Step transformStateStep() {

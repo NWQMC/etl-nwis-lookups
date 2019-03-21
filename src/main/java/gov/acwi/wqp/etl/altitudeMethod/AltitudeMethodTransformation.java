@@ -26,14 +26,7 @@ public class AltitudeMethodTransformation {
 	@Autowired
 	@Qualifier("deleteAltitudeMethod")
 	private Tasklet deleteAltitudeMethod;
-
-	@Bean
-	public Step deleteAltitudeMethodStep() {
-		return stepBuilderFactory.get("deleteAltitudeMethodStep")
-				.tasklet(deleteAltitudeMethod)
-				.build();
-	}
-
+	
 	@Autowired
 	@Qualifier("gwReflistAltitudeMethodReader")
 	private JdbcCursorItemReader<GwReflist> gwReflistAltitudeMethodReader;
@@ -45,6 +38,13 @@ public class AltitudeMethodTransformation {
 	@Autowired
 	@Qualifier("altitudeMethodWriter")
 	private JdbcBatchItemWriter<BasicLookup> altitudeMethodWriter;
+
+	@Bean
+	public Step deleteAltitudeMethodStep() {
+		return stepBuilderFactory.get("deleteAltitudeMethodStep")
+				.tasklet(deleteAltitudeMethod)
+				.build();
+	}
 
 	@Bean
 	public Step transformAltitudeMethodStep() {

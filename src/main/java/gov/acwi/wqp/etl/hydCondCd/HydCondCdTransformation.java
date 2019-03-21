@@ -23,13 +23,6 @@ public class HydCondCdTransformation {
 	@Qualifier("deleteHydCondCd")
 	private Tasklet deleteHydCondCd;
 	
-	@Bean
-	public Step deleteHydCondCdStep() {
-		return stepBuilderFactory.get("deleteHydCondCdStep")
-				.tasklet(deleteHydCondCd)
-				.build();
-	}
-	
 	@Autowired
 	@Qualifier("hydCondCdReader")
 	private JdbcCursorItemReader<HydCondCd> hydCondCdReader;
@@ -41,6 +34,13 @@ public class HydCondCdTransformation {
 	@Autowired
 	@Qualifier("hydCondCdWriter")
 	private JdbcBatchItemWriter<HydCondCd> hydCondCdWriter;
+	
+	@Bean
+	public Step deleteHydCondCdStep() {
+		return stepBuilderFactory.get("deleteHydCondCdStep")
+				.tasklet(deleteHydCondCd)
+				.build();
+	}
 	
 	@Bean
 	public Step transformHydCondCdStep() {

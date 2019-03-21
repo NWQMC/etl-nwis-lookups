@@ -23,13 +23,6 @@ public class SiteTpTransformation {
 	@Qualifier("deleteSiteTp")
 	private Tasklet deleteSiteTp;
 	
-	@Bean
-	public Step deleteSiteTpStep() {
-		return stepBuilderFactory.get("deleteSiteTpStep")
-				.tasklet(deleteSiteTp)
-				.build();
-	}
-	
 	@Autowired
 	@Qualifier("siteTpReader")
 	private JdbcCursorItemReader<SiteTp> siteTpReader;
@@ -41,6 +34,13 @@ public class SiteTpTransformation {
 	@Autowired
 	@Qualifier("siteTpWriter")
 	private JdbcBatchItemWriter<SiteTp> siteTpWriter;
+	
+	@Bean
+	public Step deleteSiteTpStep() {
+		return stepBuilderFactory.get("deleteSiteTpStep")
+				.tasklet(deleteSiteTp)
+				.build();
+	}
 	
 	@Bean
 	public Step transformSiteTpStep() {

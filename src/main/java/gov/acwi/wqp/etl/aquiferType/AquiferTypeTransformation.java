@@ -27,11 +27,6 @@ public class AquiferTypeTransformation {
 	@Qualifier("deleteAquiferType")
 	private Tasklet deleteAquiferType;
 
-	@Bean
-	public Step deleteAquiferTypeStep() {
-		return stepBuilderFactory.get("deleteAquiferTypeStep").tasklet(deleteAquiferType).build();
-	}
-
 	@Autowired
 	@Qualifier("gwReflistAquiferTypeReader")
 	private JdbcCursorItemReader<GwReflist> gwReflistAquiferTypeReader;
@@ -43,6 +38,11 @@ public class AquiferTypeTransformation {
 	@Autowired
 	@Qualifier("aquiferTypeWriter")
 	private JdbcBatchItemWriter<BasicLookup> aquiferTypeWriter;
+
+	@Bean
+	public Step deleteAquiferTypeStep() {
+		return stepBuilderFactory.get("deleteAquiferTypeStep").tasklet(deleteAquiferType).build();
+	}
 
 	@Bean
 	public Step transformAquiferTypeStep() {
