@@ -14,17 +14,15 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
 
 	private static final Logger log = LoggerFactory.getLogger(JobCompletionNotificationListener.class);
 
-	private final JdbcTemplate jdbcTemplate;
 
 	@Autowired
-	public JobCompletionNotificationListener(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
+	public JobCompletionNotificationListener() {
 	}
-
+	
 	@Override
 	public void afterJob(JobExecution jobExecution) {
 		if(jobExecution.getStatus() == BatchStatus.COMPLETED) {
-			log.info("!!! JOB FINISHED! Time to verify the results");
+			log.info("!!! JOB FINISHED!");
 		}
 	}
 }

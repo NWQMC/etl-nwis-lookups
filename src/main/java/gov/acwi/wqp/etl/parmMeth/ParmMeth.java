@@ -15,8 +15,6 @@ public class ParmMeth {
 	private boolean parmMethVldFg;
 	private String multiplier;
 	
-	public ParmMeth() {
-	}
 
 	public String getParmCd() {
 		return parmCd;

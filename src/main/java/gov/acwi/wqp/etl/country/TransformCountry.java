@@ -13,8 +13,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-import gov.acwi.wqp.etl.aqfr.AqfrRowMapper;
-
 @Component
 public class TransformCountry {
 	

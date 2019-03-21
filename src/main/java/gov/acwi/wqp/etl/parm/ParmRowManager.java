@@ -62,7 +62,7 @@ public class ParmRowManager implements RowMapper<Parm> {
 		parm.setParmInitDt(rs.getDate(PARM_INIT_DT));
 		parm.setParmInitNm(rs.getString(PARM_INIT_NM));
 		parm.setParmRevDt(rs.getDate(PARM_REV_DT));
-		parm.setParmRevNm(rs.getString(PARM_REV_NM));;
+		parm.setParmRevNm(rs.getString(PARM_REV_NM));
 		parm.setParmSeqGrpNm(rs.getString(PARM_SEQ_GRP_NM));
 		parm.setWqpcrosswalk(rs.getString(WQPCROSSWALK));
 		parm.setSrsname(rs.getString(SRSNAME));

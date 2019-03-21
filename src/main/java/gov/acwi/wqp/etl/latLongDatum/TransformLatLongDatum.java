@@ -48,7 +48,8 @@ public class TransformLatLongDatum {
 				.build();
 	}
 	
-	@Bean BasicLookupProcessor latLongDatumProcessor() {
+	@Bean 
+	public BasicLookupProcessor latLongDatumProcessor() {
 		return new BasicLookupProcessor();
 	}
 

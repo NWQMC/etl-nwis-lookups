@@ -6,8 +6,6 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
@@ -18,13 +16,9 @@ import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import gov.acwi.wqp.etl.JobCompletionNotificationListener;
-
 @Component
 public class TaskMethWithCitMeth implements Tasklet {
 		
-	private static final Logger log = LoggerFactory.getLogger(JobCompletionNotificationListener.class);
-
 	@Autowired
 	@Qualifier("wqpDataSource")
 	private DataSource wqpDataSource;
@@ -37,7 +31,7 @@ public class TaskMethWithCitMeth implements Tasklet {
 	
 	@Override
 	public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
-		String sql = new String("select meth.meth_cd, meth.meth_nm, min(cit_meth.cit_nm) cit_nm from meth left join cit_meth on meth.meth_cd = cit_meth.meth_cd group by meth.meth_cd, meth.meth_nm");
+		String sql = "select meth.meth_cd, meth.meth_nm, min(cit_meth.cit_nm) cit_nm from meth left join cit_meth on meth.meth_cd = cit_meth.meth_cd group by meth.meth_cd, meth.meth_nm";
 
 		JdbcTemplate natdbJdbcTemplate = new JdbcTemplate(natdbDataSource);
 		JdbcTemplate wqpJdbcTemplate = new JdbcTemplate(wqpDataSource);

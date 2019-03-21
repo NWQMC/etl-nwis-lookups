@@ -34,48 +34,6 @@ public class Parm {
 	private String multiplier;
 	
 	
-	public Parm() {
-	}
-
-
-	public Parm(String parmCd, String parmNm, String parmRmkTx, String parmUntTx, int parmSeqNu, String parmSeqGrpCd, String parmDs,
-			String parmMediumTx, String parmFracTx, String parmTempTx, String parmStatTx, String parmTmTx,
-			String parmWtTx, String parmSizeTx, boolean parmEntryFg, boolean parmPublicFg, boolean parmNegFg,
-			boolean parmZeroFg, boolean parmNullFg, boolean parmTsFg, Date parmInitDt, String parmInitNm,
-			Date parmRevDt, String parmRevNm, String parmSeqGrpNm, String wqpcrosswalk, String srsname,
-			String multiplier) {
-		super();
-		this.parmCd = parmCd;
-		this.parmNm = parmNm;
-		this.parmRmkTx = parmRmkTx;
-		this.parmUntTx = parmUntTx;
-		this.parmSeqNu = parmSeqNu;
-		this.parmSeqGrpCd = parmSeqGrpCd;
-		this.parmDs = parmDs;
-		this.parmMediumTx = parmMediumTx;
-		this.parmFracTx = parmFracTx;
-		this.parmTempTx = parmTempTx;
-		this.parmStatTx = parmStatTx;
-		this.parmTmTx = parmTmTx;
-		this.parmWtTx = parmWtTx;
-		this.parmSizeTx = parmSizeTx;
-		this.parmEntryFg = parmEntryFg;
-		this.parmPublicFg = parmPublicFg;
-		this.parmNegFg = parmNegFg;
-		this.parmZeroFg = parmZeroFg;
-		this.parmNullFg = parmNullFg;
-		this.parmTsFg = parmTsFg;
-		this.parmInitDt = parmInitDt;
-		this.parmInitNm = parmInitNm;
-		this.parmRevDt = parmRevDt;
-		this.parmRevNm = parmRevNm;
-		this.parmSeqGrpNm = parmSeqGrpNm;
-		this.wqpcrosswalk = wqpcrosswalk;
-		this.srsname = srsname;
-		this.multiplier = multiplier;
-	}
-
-
 	public String getParmCd() {
 		return parmCd;
 	}

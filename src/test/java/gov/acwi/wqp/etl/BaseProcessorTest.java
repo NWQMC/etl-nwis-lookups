@@ -6,7 +6,7 @@ import org.mockito.Mockito;
 
 public class BaseProcessorTest {
 	
-	BaseProcessor absCls = Mockito.mock(BaseProcessor.class, Mockito.CALLS_REAL_METHODS);
+	private BaseProcessor absCls = Mockito.mock(BaseProcessor.class, Mockito.CALLS_REAL_METHODS);
 	
 	@Test
 	public void noLeadingOrTrailingSpaceTest() {

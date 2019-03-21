@@ -48,7 +48,8 @@ public class TransformAquiferType {
 				.build();
 	}
 	
-	@Bean BasicLookupProcessor aquiferTypeProcessor() {
+	@Bean 
+	public BasicLookupProcessor aquiferTypeProcessor() {
 		return new BasicLookupProcessor();
 	}
 	

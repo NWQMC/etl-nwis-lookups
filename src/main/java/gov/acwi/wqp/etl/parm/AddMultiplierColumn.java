@@ -2,8 +2,6 @@ package gov.acwi.wqp.etl.parm;
 
 import javax.sql.DataSource;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
@@ -13,16 +11,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import gov.acwi.wqp.etl.JobCompletionNotificationListener;
-
 @Component
 public class AddMultiplierColumn implements Tasklet {
 	
-	private static final Logger log = LoggerFactory.getLogger(JobCompletionNotificationListener.class);
 
 	@Autowired
 	@Qualifier("wqpDataSource")
-	DataSource wqpDataSource;
+	private DataSource wqpDataSource;
 	
 	@Override
 	public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {

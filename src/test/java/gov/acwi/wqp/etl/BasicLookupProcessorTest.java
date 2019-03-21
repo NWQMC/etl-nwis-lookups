@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 
 public class BasicLookupProcessorTest {
 	
-	BasicLookupProcessor processor = new BasicLookupProcessor();
+	private BasicLookupProcessor processor = new BasicLookupProcessor();
 	
 	@Test
 	public void processorTest() throws Exception {
