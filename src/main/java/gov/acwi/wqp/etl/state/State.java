@@ -13,25 +13,6 @@ public class State {
 	private String stateMinAltVa;
 	private String stateMd;
 	
-	public State() {
-	}
-
-	public State(String countryCd, String stateCd, String stateNm, String statePostCd, String stateMaxLatVa,
-			String stateMinLatVa, String stateMaxLongVa, String stateMinLongVa, String stateMaxAltVa,
-			String stateMinAltVa, String stateMd) {
-		super();
-		this.countryCd = countryCd;
-		this.stateCd = stateCd;
-		this.stateNm = stateNm;
-		this.statePostCd = statePostCd;
-		this.stateMaxLatVa = stateMaxLatVa;
-		this.stateMinLatVa = stateMinLatVa;
-		this.stateMaxLongVa = stateMaxLongVa;
-		this.stateMinLongVa = stateMinLongVa;
-		this.stateMaxAltVa = stateMaxAltVa;
-		this.stateMinAltVa = stateMinAltVa;
-		this.stateMd = stateMd;
-	}
 
 	public String getCountryCd() {
 		return countryCd;

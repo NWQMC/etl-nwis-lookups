@@ -18,17 +18,15 @@ public class TransformParmMeth {
 	
 	@Autowired
 	@Qualifier("wqpDataSource")
-	DataSource wqpDataSource;
+	private DataSource wqpDataSource;
 
 	@Autowired
 	@Qualifier("natdbDataSource")
-	DataSource natdbDataSource;
+	private DataSource natdbDataSource;
 
 	@Autowired
 	public StepBuilderFactory stepBuilderFactory;
 	
-	public TransformParmMeth() {
-	}
 	
 	@Bean
 	public JdbcCursorItemReader<ParmMeth> parmMethReader() {

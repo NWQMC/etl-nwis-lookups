@@ -13,26 +13,6 @@ public class County {
 	private String countyMinAltVa;
 	private String countyMd;
 	
-	public County() {
-	}
-
-	public County(String countryCd, String stateCd, String countyCd, String countyNm, String countyMaxLatVa,
-			String countyMinLatVa, String countyMaxLongVa, String countyMinLongVa, String countyMaxAltVa,
-			String countyMinAltVa, String countyMd) {
-		super();
-		this.countryCd = countryCd;
-		this.stateCd = stateCd;
-		this.countyCd = countyCd;
-		this.countyNm = countyNm;
-		this.countyMaxLatVa = countyMaxLatVa;
-		this.countyMinLatVa = countyMinLatVa;
-		this.countyMaxLongVa = countyMaxLongVa;
-		this.countyMinLongVa = countyMinLongVa;
-		this.countyMaxAltVa = countyMaxAltVa;
-		this.countyMinAltVa = countyMinAltVa;
-		this.countyMd = countyMd;
-	}
-
 	public String getCountryCd() {
 		return countryCd;
 	}

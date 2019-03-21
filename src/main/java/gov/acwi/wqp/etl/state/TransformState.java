@@ -18,18 +18,16 @@ public class TransformState {
 
 	@Autowired
 	@Qualifier("wqpDataSource")
-	DataSource wqpDataSource;
+	private DataSource wqpDataSource;
 
 	@Autowired
 	@Qualifier("natdbDataSource")
-	DataSource natdbDataSource;
+	private DataSource natdbDataSource;
 
 	@Autowired
 	public StepBuilderFactory stepBuilderFactory;
 
-	public TransformState() {
-	}
-
+	
 	@Bean
 	public JdbcCursorItemReader<State> stateReader() {
 		return new JdbcCursorItemReaderBuilder<State>().dataSource(natdbDataSource).name("natdbState").sql(

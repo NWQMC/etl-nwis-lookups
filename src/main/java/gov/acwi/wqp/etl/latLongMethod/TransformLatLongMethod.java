@@ -26,14 +26,12 @@ public class TransformLatLongMethod {
 	
 	@Autowired
 	@Qualifier("wqpDataSource")
-	DataSource wqpDataSource;
+	private DataSource wqpDataSource;
 
 	@Autowired
 	@Qualifier("natdbDataSource")
-	DataSource natdbDataSource;
+	private DataSource natdbDataSource;
 	
-	public TransformLatLongMethod() {
-	}
 	
 	@Bean
 	public JdbcCursorItemReader<GwReflist> gwReflistLatLongMethodReader() {

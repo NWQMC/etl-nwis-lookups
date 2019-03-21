@@ -28,38 +28,6 @@ public class Tu {
 	private int tuRnkId;
 	private Date tuMd;
 	
-	public Tu() {
-	}
-
-	public Tu(int tuId, String tu1Cd, String tu1Nm, String tu2Cd, String tu2Nm, String tu3Cd, String tu3Nm, String tu4Cd,
-			String tu4Nm, String tuUnnmCd, String tuUseCd, String tuUnaccpRsnTx, String tuCredRatTx, String tuCmpltRatCd,
-			String tuCurrRatCd, int tuPhylSrtNu, Date tuCr, int tuParId, int tuTaxAuthId, int tuHybrAuthId,
-			int tuKingId, int tuRnkId, Date tuMd) {
-		super();
-		this.tuId = tuId;
-		this.tu1Cd = tu1Cd;
-		this.tu1Nm = tu1Nm;
-		this.tu2Cd = tu2Cd;
-		this.tu2Nm = tu2Nm;
-		this.tu3Cd = tu3Cd;
-		this.tu3Nm = tu3Nm;
-		this.tu4Cd = tu4Cd;
-		this.tu4Nm = tu4Nm;
-		this.tuUnnmCd = tuUnnmCd;
-		this.tuUseCd = tuUseCd;
-		this.tuUnaccpRsnTx = tuUnaccpRsnTx;
-		this.tuCredRatTx = tuCredRatTx;
-		this.tuCmpltRatCd = tuCmpltRatCd;
-		this.tuCurrRatCd = tuCurrRatCd;
-		this.tuPhylSrtNu = tuPhylSrtNu;
-		this.tuCr = tuCr;
-		this.tuParId = tuParId;
-		this.tuTaxAuthId = tuTaxAuthId;
-		this.tuHybrAuthId = tuHybrAuthId;
-		this.tuKingId = tuKingId;
-		this.tuRnkId = tuRnkId;
-		this.tuMd = tuMd;
-	}
 	
 	public int getTuId() {
 		return tuId;

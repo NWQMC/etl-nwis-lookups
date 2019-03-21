@@ -1,6 +1,5 @@
 package gov.acwi.wqp.etl.siteTp;
 
-import java.util.Date;
 
 public class SiteTp {
 

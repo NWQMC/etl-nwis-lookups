@@ -26,14 +26,11 @@ public class TransformAltitudeMethod {
 	
 	@Autowired
 	@Qualifier("wqpDataSource")
-	DataSource wqpDataSource;
+	private DataSource wqpDataSource;
 
 	@Autowired
 	@Qualifier("natdbDataSource")
-	DataSource natdbDataSource;
-
-	public TransformAltitudeMethod() {
-	}
+	private DataSource natdbDataSource;
 	
 	@Bean
 	public JdbcCursorItemReader<GwReflist> gwReflistAltitudeMethodReader() {

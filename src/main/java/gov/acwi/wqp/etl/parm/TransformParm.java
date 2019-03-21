@@ -21,11 +21,11 @@ public class TransformParm {
 	
 	@Autowired
 	@Qualifier("wqpDataSource")
-	DataSource wqpDataSource;
+	private DataSource wqpDataSource;
 
 	@Autowired
 	@Qualifier("natdbDataSource")
-	DataSource natdbDataSource;
+	private DataSource natdbDataSource;
 
 	@Autowired
 	public StepBuilderFactory stepBuilderFactory;
@@ -33,8 +33,6 @@ public class TransformParm {
 	@Value("classpath:sql/parm.sql")
 	private Resource resource;
 	
-	public TransformParm() {
-	}
 	
 	@Bean
 	public JdbcCursorItemReader<Parm> parmReader() throws Exception{

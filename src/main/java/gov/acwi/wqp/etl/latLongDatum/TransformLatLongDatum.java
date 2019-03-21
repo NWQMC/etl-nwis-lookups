@@ -26,15 +26,12 @@ public class TransformLatLongDatum {
 	
 	@Autowired
 	@Qualifier("wqpDataSource")
-	DataSource wqpDataSource;
+	private DataSource wqpDataSource;
 
 	@Autowired
 	@Qualifier("natdbDataSource")
-	DataSource natdbDataSource;
+	private DataSource natdbDataSource;
 
-	
-	public TransformLatLongDatum() {
-	}
 	
 	@Bean
 	public JdbcCursorItemReader<GwReflist> gwReflistLatLongDatumReader() {

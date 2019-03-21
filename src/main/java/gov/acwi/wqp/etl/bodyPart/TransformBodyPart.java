@@ -18,17 +18,14 @@ public class TransformBodyPart {
 	
 	@Autowired
 	@Qualifier("wqpDataSource")
-	DataSource wqpDataSource;
+	private DataSource wqpDataSource;
 
 	@Autowired
 	@Qualifier("natdbDataSource")
-	DataSource natdbDataSource;
+	private DataSource natdbDataSource;
 
 	@Autowired
 	public StepBuilderFactory stepBuilderFactory;
-	
-	public TransformBodyPart() {
-	}
 	
 	@Bean
 	public JdbcCursorItemReader<BodyPart> bodyPartReader() {

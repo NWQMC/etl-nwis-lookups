@@ -18,17 +18,15 @@ public class TransformNatAqfr {
 	
 	@Autowired
 	@Qualifier("wqpDataSource")
-	DataSource wqpDataSource;
+	private DataSource wqpDataSource;
 
 	@Autowired
 	@Qualifier("natdbDataSource")
-	DataSource natdbDataSource;
+	private DataSource natdbDataSource;
 
 	@Autowired
 	public StepBuilderFactory stepBuilderFactory;
 	
-	public TransformNatAqfr() {
-	}
 	
 	@Bean
 	public JdbcCursorItemReader<NatAqfr> natAqfrReader() {

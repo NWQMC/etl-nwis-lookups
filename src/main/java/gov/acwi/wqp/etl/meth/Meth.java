@@ -15,24 +15,7 @@ public class Meth {
 	private String methRevNm;
 	private Date methRevDt;
 
-	public Meth() {
-	}
-
-	public Meth(String methCd, String methTp, String methNm, String methDs, String methRndOwnerCd, String disciplineCd,
-			String methInitNm, Date methInitDt, String methRevNm, Date methRevDt) {
-		super();
-		this.methCd = methCd;
-		this.methTp = methTp;
-		this.methNm = methNm;
-		this.methDs = methDs;
-		this.methRndOwnerCd = methRndOwnerCd;
-		this.disciplineCd = disciplineCd;
-		this.methInitNm = methInitNm;
-		this.methInitDt = methInitDt;
-		this.methRevNm = methRevNm;
-		this.methRevDt = methRevDt;
-	}
-
+	
 	public String getMethCd() {
 		return methCd;
 	}

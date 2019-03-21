@@ -26,14 +26,12 @@ public class TransformAquiferType {
 	
 	@Autowired
 	@Qualifier("wqpDataSource")
-	DataSource wqpDataSource;
+	private DataSource wqpDataSource;
 
 	@Autowired
 	@Qualifier("natdbDataSource")
-	DataSource natdbDataSource;
+	private DataSource natdbDataSource;
 
-	public TransformAquiferType() {
-	}
 	
 	@Bean
 	public JdbcCursorItemReader<GwReflist> gwReflistAquiferTypeReader() {

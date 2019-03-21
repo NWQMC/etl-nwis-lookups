@@ -18,21 +18,6 @@ public class ParmMeth {
 	public ParmMeth() {
 	}
 
-	public ParmMeth(String parmCd, String methCd, String parmMethLgcyCd, String parmMethRndTx, String parmMethInitNm,
-			Date parmMethInitDt, String parmMethRevNm, Date parmMethRevDt, boolean parmMethVldFg, String multiplier) {
-		super();
-		this.parmCd = parmCd;
-		this.methCd = methCd;
-		this.parmMethLgcyCd = parmMethLgcyCd;
-		this.parmMethRndTx = parmMethRndTx;
-		this.parmMethInitNm = parmMethInitNm;
-		this.parmMethInitDt = parmMethInitDt;
-		this.parmMethRevNm = parmMethRevNm;
-		this.parmMethRevDt = parmMethRevDt;
-		this.parmMethVldFg = parmMethVldFg;
-		this.multiplier = multiplier;
-	}
-
 	public String getParmCd() {
 		return parmCd;
 	}
