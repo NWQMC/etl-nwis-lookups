@@ -14,7 +14,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <cida.maven.url>http://cida.usgs.gov/maven</cida.maven.url>
+        <cida.maven.url>https://internal.cida.usgs.gov/maven</cida.maven.url>
     </properties>
     
     <scm>
