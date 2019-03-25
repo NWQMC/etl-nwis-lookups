@@ -1,1 +1,7 @@
 /.project
+/.idea
+/target/
+/.settings/
+/.classpath
+/application.yml
+/application-it.yml

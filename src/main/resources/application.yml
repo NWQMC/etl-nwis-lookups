@@ -1,0 +1,17 @@
+spring:
+  batch:
+    initialize-schema: always
+    job:
+      enabled: false
+    
+app:
+  datasource:
+    wqp:
+      url: jdbc:postgresql://${NWIS_WS_STAR_HOST}:${NWIS_WS_STAR_PORT}/${NWIS_WS_STAR_DB}
+      username: ${NWIS_WS_STAR_USERNAME}
+      password: ${NWIS_WS_STAR_PASSWORD}
+      
+    natdb:
+      url: jdbc:oracle:thin:@//${NATDB_HOST}:${NATDB_PORT}/${NATDB_NWISRA_DB}
+      username: ${NATDB_USERNAME}
+      password: ${NATDB_PASSWORD}
