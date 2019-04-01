@@ -1,10 +1,10 @@
-version: '3.6.0'
+version: '3.3'
 
 services:
-  ogcproxy:
+  etl-nwis-lookups:
     build: .
     image: etl-nwis-lookups
     ports:
       - "8080:8080"
     environment:
-     
+      - SERVER_PORT=${SERVER_PORT}
