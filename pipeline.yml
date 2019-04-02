@@ -1,7 +1,6 @@
 projectName: "wqp-external"
 applicationName: "etl-nwis-lookups"
 dockerImageName: "etl-nwis-lookups"
-containerPort: 8080
 artifactoryPath: "wqp"
 gitlabPath: "wma/docker/wqp/etl-nwis-lookups"
 gitRepoUrl: "https://github.com/NWQMC/etl-nwis-lookups"
