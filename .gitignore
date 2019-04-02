@@ -7,3 +7,4 @@
 /application-it.yml
 /bin/
 /.env
+/secrets.env

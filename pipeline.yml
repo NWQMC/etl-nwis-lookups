@@ -9,4 +9,3 @@ gitRepoCredentialsId: "Jenkins-GitHub-Read-Write-Token"
 memory: 768
 rulePriority: 89
 contextPath: "/etl-nwis-lookups/*"
-deployJobName: "etl-nwis-lookups-container-deploy"
