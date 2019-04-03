@@ -25,7 +25,12 @@
     </scm>
     <repositories>
         <repository>
-            <id>nexus</id>
+            <id>Central</id>
+            <name>Maven Central</name>
+            <url>https://repo.maven.apache.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>Legacy</id>
             <name>CIDA Nexus</name>
             <url>${cida.maven.url}/content/groups/public/</url>
         </repository>
