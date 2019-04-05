@@ -30,12 +30,21 @@ pipeline {
         stage('build docker image') {
             steps {
                 script {
+                	p = pipelineCfg('pipeline.yml')
                     pipelineUtils.cloneGitRepo()
                     pipelineUtils.setUpPythonVirtualEnv()
                     pipelineUtils.pipInstall('--only-binary=bumpversion bumpversion==0.5.3 requests')
                     dockerPipeline.buildDockerArtifact(p.artifactoryPath, p.gitlabPath, p.dockerImageName, './')
                 }
             }
+        }
+        stage('publish docker image') {
+        	steps {
+        		script {
+        			dockerPipeline.publishDockerImages(p.artifactoryPath, p.gitlabPath)
+        			dockerPipeline.deleteDockerImages(p.artifactoryPath, 10, p.pockerImageName)
+        		}
+        	}
         }
     }
 }
