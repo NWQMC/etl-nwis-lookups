@@ -23,7 +23,6 @@
         <url>https://github.com/NWQMC/etl-nwis-lookups.git</url>
         <tag>HEAD</tag>
     </scm>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -55,6 +54,9 @@
             <groupId>org.springframework.batch</groupId>
             <artifactId>spring-batch-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+        
         </dependency>
     </dependencies>
 
