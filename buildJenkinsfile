@@ -30,9 +30,9 @@ pipeline {
         }
         stage('build docker image') {
             steps {
-                script {
-                	p = pipelineCfg('pipeline.yml')
+                script {                	
                     pipelineUtils.cloneGitRepo()
+                    p = pipelineCfg('pipeline.yml')
                     pipelineUtils.setUpPythonVirtualEnv()
                     pipelineUtils.pipInstall('--only-binary=bumpversion bumpversion==0.5.3 requests')
                     dockerPipeline.buildDockerArtifact(p.artifactoryPath, p.gitlabPath, p.dockerImageName, './')
