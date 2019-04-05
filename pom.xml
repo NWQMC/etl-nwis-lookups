@@ -55,9 +55,6 @@
             <artifactId>spring-batch-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-        
-        </dependency>
     </dependencies>
 
     <build>

@@ -10,7 +10,7 @@ RUN mvn -B dependency:resolve
 
 # Add source code and (by default) build the jar
 COPY src /build/src
-RUN mvn -B -o clean package
+RUN mvn -B clean package
 
 
 FROM usgswma/openjdk:debian-stretch-openjdk-11.0.2-89c4dd2d55ba476c77aa8fd5274dcb8a1ef115b7
