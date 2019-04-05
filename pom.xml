@@ -16,20 +16,13 @@
         <java.version>11</java.version>
         <cida.maven.url>https://internal.cida.usgs.gov/maven</cida.maven.url>
     </properties>
-    
+
     <scm>
         <connection>scm:git:https://github.com/NWQMC/etl-nwis-lookups.git</connection>
         <developerConnection>scm:git:git@github.com:NWQMC/etl-nwis-lookups.git</developerConnection>
         <url>https://github.com/NWQMC/etl-nwis-lookups.git</url>
         <tag>HEAD</tag>
     </scm>
-    <repositories>
-        <repository>
-            <id>Central</id>
-            <name>Maven Central</name>
-            <url>https://repo.maven.apache.org/maven2/</url>
-        </repository>
-    </repositories>
 
     <dependencies>
         <dependency>
@@ -40,7 +33,12 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>11.2.0.2.0-1</version>
+            <scope>provided</scope>
+        </dependency>
 
 <!-- TEST DEPENDENCIES-->
         <dependency>
