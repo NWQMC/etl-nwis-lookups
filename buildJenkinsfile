@@ -1,5 +1,7 @@
 @Library(value='PipelineLibs@0.7.1', changelog=false) _
 
+def p
+
 pipeline {
     agent {
         node {
@@ -13,9 +15,26 @@ pipeline {
         pollSCM('H/5 * * * *')
     }
     stages {
-        stage('build artifact') {
+        stage('clean workspace') {
             steps {
-                dockerPipeline()
+                script {
+                    pipelineUtils.cleanWorkspace()
+                }
+            }
+        }
+        stage('pull ojdbc jar from s3') {
+            steps {
+                sh "aws s3 cp s3://owi-common-resources/resources/InstallFiles/oracle-jdbc-driver/ojdbc6-11.2.0.2.0-1.jar ${WORKSPACE}/ojdbc6-11.2.0.2.0-1.jar"
+            }
+        }
+        stage('build docker image') {
+            steps {
+                script {
+                    pipelineUtils.cloneGitRepo()
+                    pipelineUtils.setUpPythonVirtualEnv()
+                    pipelineUtils.pipInstall('--only-binary=bumpversion bumpversion==0.5.3 requests')
+                    dockerPipeline.buildDockerArtifact(p.artifactoryPath, p.gitlabPath, p.dockerImageName, './')
+                }
             }
         }
     }
