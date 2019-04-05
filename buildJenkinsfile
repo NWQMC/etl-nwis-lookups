@@ -24,8 +24,10 @@ pipeline {
         }
         stage('prep workspace') {
             steps {
-                pipelineUtils.cloneGitRepo()
-                p = pipelineCfg('pipeline.yml')
+                script {
+                  pipelineUtils.cloneGitRepo()
+                  p = pipelineCfg('pipeline.yml')
+                }
             }
         }
         stage('pull ojdbc jar from s3') {
