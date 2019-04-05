@@ -29,11 +29,6 @@
             <name>Maven Central</name>
             <url>https://repo.maven.apache.org/maven2/</url>
         </repository>
-        <repository>
-            <id>Legacy</id>
-            <name>CIDA Nexus</name>
-            <url>${cida.maven.url}/content/groups/public/</url>
-        </repository>
     </repositories>
 
     <dependencies>
