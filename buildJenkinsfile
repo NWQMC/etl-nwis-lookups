@@ -24,13 +24,14 @@ pipeline {
         }
         stage('pull ojdbc jar from s3') {
             steps {
-            	sh "mkdir oracle"
+                sh "mkdir ${WORKSPACE}/oracle"
+                sh "ls -al"
                 sh "aws s3 cp s3://owi-common-resources/resources/InstallFiles/oracle-jdbc-driver/ojdbc6-11.2.0.2.0-1.jar ${WORKSPACE}/oracle/ojdbc6-11.2.0.2.0-1.jar"
             }
         }
         stage('build docker image') {
             steps {
-                script {                	
+                script {
                     pipelineUtils.cloneGitRepo()
                     p = pipelineCfg('pipeline.yml')
                     pipelineUtils.setUpPythonVirtualEnv()
