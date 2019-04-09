@@ -6,7 +6,7 @@ COPY pom.xml /build/pom.xml
 WORKDIR /build
 COPY oracle/ojdbc6-11.2.0.2.0-1.jar .
 RUN mvn install:install-file -Dfile=ojdbc6-11.2.0.2.0-1.jar -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.2.0-1 -Dpackaging=jar
-RUN mvn -B dependency:resolve
+RUN mvn -B dependency:go-offline
 
 # Add source code and (by default) build the jar
 COPY src /build/src
