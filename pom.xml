@@ -16,26 +16,13 @@
         <java.version>11</java.version>
         <cida.maven.url>https://internal.cida.usgs.gov/maven</cida.maven.url>
     </properties>
-    
+
     <scm>
         <connection>scm:git:https://github.com/NWQMC/etl-nwis-lookups.git</connection>
         <developerConnection>scm:git:git@github.com:NWQMC/etl-nwis-lookups.git</developerConnection>
         <url>https://github.com/NWQMC/etl-nwis-lookups.git</url>
         <tag>HEAD</tag>
     </scm>
-    <repositories>
-        <repository>
-            <id>Central</id>
-            <name>Maven Central</name>
-            <url>https://repo.maven.apache.org/maven2/</url>
-        </repository>
-        <repository>
-            <id>Legacy</id>
-            <name>CIDA Nexus</name>
-            <url>${cida.maven.url}/content/groups/public/</url>
-        </repository>
-    </repositories>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
