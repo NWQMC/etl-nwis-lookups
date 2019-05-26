@@ -1,0 +1,67 @@
+@Library(value='PipelineLibs@0.7.1', changelog=false) _
+
+def p
+
+pipeline {
+    agent {
+        node {
+            label 'project:any'
+        }
+    }
+    parameters {
+        choice(choices: ['snapshots', 'releases'], description: 'type of build', name: 'BUILD_TYPE')
+    }
+    triggers {
+        pollSCM('H/5 * * * *')
+    }
+    stages {
+        stage('clean workspace') {
+            steps {
+                script {
+                    pipelineUtils.cleanWorkspace()
+                }
+            }
+        }
+        stage('prep workspace') {
+            steps {
+                script {
+                  pipelineUtils.cloneGitRepo()
+                  p = pipelineCfg('pipeline.yml')
+                }
+            }
+        }
+        stage('pull ojdbc jar from s3') {
+            steps {
+                sh "mkdir ${WORKSPACE}/oracle"
+                sh "aws s3 cp s3://owi-common-resources/resources/InstallFiles/oracle-jdbc-driver/ojdbc6-11.2.0.2.0-1.jar ${WORKSPACE}/oracle/ojdbc6-11.2.0.2.0-1.jar"
+            }
+        }
+        stage('build docker image') {
+            steps {
+                script {
+                    pipelineUtils.setUpPythonVirtualEnv()
+                    pipelineUtils.pipInstall('--only-binary=bumpversion bumpversion==0.5.3 requests')
+                    dockerPipeline.buildDockerArtifact(p.artifactoryPath, p.gitlabPath, p.dockerImageName, './')
+                }
+            }
+        }
+        stage('publish docker image') {
+        	steps {
+        		script {
+        			dockerPipeline.publishDockerImages(p.artifactoryPath, p.gitlabPath)
+        			dockerPipeline.deleteDockerImages(p.artifactoryPath, 10, p.dockerImageName)
+        		}
+        	}
+        }
+        stage('push to git') {
+        	steps {
+        		script {
+        			if ("${params.BUILD_TYPE}" == "releases") {
+                		pipelineUtils.bumpVersion()
+        			}
+        			pipelineUtils.pushToGitRepo(p.gitRepoUrl, p.gitRepoCredentialsId)
+        		}
+        	}
+        }
+    }
+}
